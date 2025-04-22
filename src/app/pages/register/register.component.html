@@ -1,0 +1,84 @@
+<app-header class="app-header"></app-header>
+<div class="form-container">
+  <h2>Register</h2>
+  <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <input
+      type="text"
+      placeholder="FirstName"
+      name="FirstName"
+      [(ngModel)]="formData.FirstName"
+      #FirstName="ngModel"
+      required
+    />
+    <div *ngIf="registerForm.submitted && FirstName.invalid">
+      <small *ngIf="FirstName.errors?.['required']"
+        >First Name is required</small
+      >
+    </div>
+
+    <input  
+      type="text"
+      placeholder="LastName"
+      name="LastName"
+      [(ngModel)]="formData.LastName"
+      #LastName="ngModel"
+      required
+    />
+    <div *ngIf="registerForm.submitted && LastName.invalid">
+      <small *ngIf="LastName.errors?.['required']">Last Name is required</small>
+    </div>
+
+    <input
+      type="email"
+      placeholder="Email"
+      name="Email"
+      [(ngModel)]="formData.Email"
+      #Email="ngModel"
+      required
+      email
+    />
+    <div *ngIf="registerForm.submitted || Email.invalid">
+      <small *ngIf="Email.errors?.['required']">Email is required</small>
+      <small *ngIf="Email.errors?.['email']">Please enter a valid Email</small>
+    </div>
+
+    <input
+      type="text"
+      placeholder="Enter your number"
+      name="number"
+      #number="ngModel"
+      [(ngModel)]="formData.number"
+      required
+      pattern="^[0-9]{10}$"
+    />
+    <div *ngIf="registerForm.submitted || number.invalid">
+      <small *ngIf="number.errors?.['required']"
+        >Mobile number is required</small
+      >
+      <small *ngIf="number.errors?.['pattern']"
+        >Enter a valid 10-digit number</small
+      >
+    </div>
+
+    <input
+      type="password"
+      placeholder="Password"
+      name="Password"
+      [(ngModel)]="formData.Password"
+      #Password="ngModel"
+      required
+      minlength="6"
+    />
+    <div *ngIf="registerForm.submitted || Password.invalid">
+      <small *ngIf="Password.errors?.['required']">Password is required</small>
+      <small *ngIf="Password.errors?.['minlength']"
+        >Password must be at least 6 characters</small
+      >
+    </div>
+
+    <button type="submit" [disabled]="!registerForm.valid">Register</button>
+  </form>
+  <p>Already have an account? <a routerLink="/login">Login here</a></p>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,8 @@
+<nz-carousel nzAutoPlay> 
+    @for (imageUrl of imageUrls; track imageUrls)
+    {
+      <div nz-carousel-content>
+        <img class="carousel-img" [src]="imageUrl" alt="carousel image" />
+      </div>
+    }
+  </nz-carousel>

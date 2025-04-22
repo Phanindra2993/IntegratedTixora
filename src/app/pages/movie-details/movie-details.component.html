@@ -1,0 +1,37 @@
+<app-header class="app-header"></app-header>
+
+<div class="movie-details-container">
+  <div class="movie-main">
+    <div class="poster">
+      <img [src]="movie.imageUrl" alt="Movie Poster" />
+    </div>
+    <div class="details">
+      <h2>{{ movie.movieName }}</h2>
+      <div class="tags">
+        <span class="tag">{{ movie.format }}</span>
+        <span class="tag">{{ movie.language }}</span>
+      </div>
+      <p style="width: 40vw;" class="description">{{ movie.description }}</p>
+      <button class="book-btn">Book Tickets</button>
+    </div>
+  </div>
+  <div class="related">
+    <h3>Related Movies:</h3>
+    <div class="related-list">
+      <!-- <app-movie-card *ngFor="let movie of relatedMovies" [movie]="movie"></app-movie-card> -->
+      <ng-container *ngFor="let movie of relatedMovies">
+        <a class="card" [routerLink]="['/movie-details', movie.id]">
+          <app-movie-card [movie]="movie"></app-movie-card>
+        </a>
+      </ng-container>
+
+      <!-- <ng-container *ngFor="let movie of filteredMovies">
+        <a class="card" [routerLink]="['/movie-details', movie.id]">
+          <app-movie-card [movie]="movie"></app-movie-card>
+        </a>
+      </ng-container> -->
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

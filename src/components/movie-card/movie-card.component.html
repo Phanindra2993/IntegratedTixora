@@ -1,0 +1,12 @@
+
+
+  <nz-card nzHoverable style="width:180px" [nzCover]="coverTemplate">
+    <nz-card-meta [nzTitle]="movie?.movieName || 'Untitled Movie'" 
+                  [nzDescription]="movie?.genre || 'Genre Not Available'">
+    </nz-card-meta>
+  </nz-card>  
+  
+  <ng-template #coverTemplate>
+    <img class="movie-image" alt="movie cover" [src]="movie?.imageUrl || 'Image Not Available'" />
+  </ng-template>
+  

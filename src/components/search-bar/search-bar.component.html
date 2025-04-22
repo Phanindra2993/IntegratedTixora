@@ -1,0 +1,29 @@
+
+    <!-- <nz-input-group [nzSuffix]="suffixIconSearch">
+      <input type="text" nz-input placeholder="input search text" />
+    </nz-input-group>
+    <ng-template #suffixIconSearch>
+      <nz-icon nzType="search" />
+    </ng-template>
+    <br /> -->
+  
+    <nz-input-group nzSearch [nzAddOnAfter]="suffixIconButton">
+      <input type="text" nz-input
+       placeholder="Search movies..."
+       [(ngModel)]="inputValue"
+       (keyup.enter)="onSearchClick()"
+       (input)="onInputChange()"
+         />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSearch><nz-icon nzType="search"  (click)="onSearchClick()"/></button>
+    </ng-template>
+  
+    
+    <!-- <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixButton">
+      <input type="text" nz-input placeholder="input search text" />
+    </nz-input-group>
+    <ng-template #suffixButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch>Search</button>
+    </ng-template>
+   -->

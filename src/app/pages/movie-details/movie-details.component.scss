@@ -1,0 +1,85 @@
+// movie-details.component.scss
+
+.movie-details-container {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    position: relative;
+    top: 10vh;
+    padding-bottom: 15vh;
+  
+    .movie-main {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+  
+      .poster img {
+        width: 250px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+  
+      .details {
+        flex: 1;
+  
+        h2 {
+          font-size: 2rem;
+          margin-bottom: 0.5rem;
+        }
+  
+        .tags {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 1rem;
+  
+          .tag {
+            background-color: #1890ff;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+          }
+        }
+  
+        .description {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+        }
+  
+        .book-btn {
+          background-color: #1890ff;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: 0.3s;
+  
+          &:hover {
+            background-color: #005bb5;
+          }
+        }
+      }
+    }
+  
+    .related {
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+  
+      .related-list {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: start;
+      }
+    }
+  }
+ .app-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+ } 
