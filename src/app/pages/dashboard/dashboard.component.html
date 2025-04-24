@@ -171,8 +171,10 @@
       </button>
     </aside>
     <main class="movies-container">
-      <h2>Available Movies...</h2>
-      <a routerLink="/booking-history" class="nav-link">Booking History</a>
+      <div class="box">
+        <h2>Available Movies...</h2>
+        <a routerLink="/booking-history" class="nav-link">Booking History</a>
+      </div>
 
       <div class="movie-card-container">
         <div *ngIf="isLoading" class="loading">Loading Movies...</div>
@@ -189,15 +191,13 @@
         <div *ngIf="!isLoading && !errorMessage">
           <div class="movie-list">
             <ng-container *ngFor="let movie of filteredMovies">
-              <a class="card" [routerLink]="['/movie-details', movie.id]"> 
+              <a class="card" [routerLink]="['/movie-details', movie.id]">
                 <app-movie-card [movie]="movie"></app-movie-card>
               </a>
             </ng-container>
           </div>
-
         </div>
       </div>
-
     </main>
   </div>
   <app-footer class="footer-container"></app-footer>
