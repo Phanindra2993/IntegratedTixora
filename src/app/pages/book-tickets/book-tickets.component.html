@@ -1,1 +1,58 @@
-<p>book-tickets works!</p>
+<app-header></app-header>
+<div class="book-tikcets-container">
+  <h1>{{ movie.movieName }}</h1>
+
+  <div class="dates-and-showtimes-container">
+    <div class="dates">
+      <button
+        *ngFor="let date of availableDates"
+        (click)="selectDate(date)"
+        [class.active]="date === selectedDate"
+      >
+        {{ date | date : "EE dd" }}
+      </button>
+    </div>
+
+    <div class="show-timings-container">
+      <select [(ngModel)]="selectedTime">
+        <option value="" disabled selected>Select show time</option>
+        <option *ngFor="let time of movie.showTimes" [value]="time">
+          {{ time }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seats-container">
+    <h3>How many Seats?</h3>
+    <div class="icon-display" *ngIf="seatCount">
+      <span class="emoji">
+        {{
+          seatCount === 1
+            ? "🚲"
+            : seatCount === 2
+            ? "🏍️"
+            : seatCount === 3
+            ? "🛺"
+            : seatCount === 4
+            ? "🚗"
+            : seatCount === 5
+            ? "🚐"
+            : seatCount === 6
+            ? "🚛"
+            : ""
+        }}
+      </span>
+    </div>
+    <button
+      *ngFor="let count of [1, 2, 3, 4, 5, 6]"
+      (click)="seatCount = count"
+      [class.selected]="seatCount === count"
+    >
+      {{ count }}
+    </button>
+  </div>
+  <button (click)="confirmBooking()">Select Seats</button>
+  <small *ngIf="showError">{{errorMessage}}</small>
+</div>
+<app-footer></app-footer>

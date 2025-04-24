@@ -8,6 +8,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './pages/terms-of-service/terms-of-service.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
+import { authGuard } from './guards/auth.guard';
+import { BookingHistoryComponent } from './pages/booking-history/booking-history.component';
 
 export const routes: Routes = [
   {
@@ -34,14 +36,6 @@ export const routes: Routes = [
     path: 'ticket/:id',
     component: TicketComponent,
   },
-  {
-    path: 'login',
-    component: LoginComponent,
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
 
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-of-service', component: TermsOfServiceComponent },
@@ -49,11 +43,28 @@ export const routes: Routes = [
   {
     path: 'movie-details/:id',
     component: MovieDetailsComponent,
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'book-tickets/:id',
+    component: BookTicketsComponent,
+    canActivate: [authGuard],
   },
   {
-    path: 'book-tickets',
-    component: BookTicketsComponent,
+    path: 'ticket',
+    component: TicketComponent,
   },
+  {
+    path: 'ticket/:id',
+    component: TicketComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'booking-history',
+    component: BookingHistoryComponent,
+  },
+
   {
     path: '**',
     redirectTo: '',

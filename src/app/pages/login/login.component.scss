@@ -5,6 +5,8 @@
     background-color: #f2f2f2;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 10vh;
   }
   
   .form-container h2 {
@@ -40,5 +42,8 @@
   p {
     text-align: center;
     margin-top: 15px;
+  }
+  small{
+    color: red;
   }
   
