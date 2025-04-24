@@ -1,280 +1,480 @@
 {
   "movies": [
     {
-      "id": 1,
+      "id": "1",
       "movieName": "The Shawshank Redemption",
       "language": "English",
-      "genre": "Drama",
+      "genre": "Crime",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
-      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "imageUrl": "https://th.bing.com/th/id/OIP.-4OO96SRH00tOP4F0HnKVgHaLG?rs=1&pid=ImgDetMain",
+      "isActive": true
     },
     {
-      "id": 2,
+      "id": "2",
       "movieName": "The Godfather",
       "language": "English",
       "genre": "Crime",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-      "imageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAY2xsJVIZxm3K0gNtOMr9CSCvLdr5kdo3V3pv2HMuUkTBhFzRe5-b8NDRmO1mt5S5Xp_YyQ"
+      "imageUrl": "https://th.bing.com/th/id/OIP.u5lvdFqa0C_9hkIh5t47XgHaLH?rs=1&pid=ImgDetMain",
+      "isActive": true
     },
     {
-      "id": 3,
+      "id": "3",
       "movieName": "The Dark Knight",
       "language": "English",
       "genre": "Action",
       "format": "4DX",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfE_qrYMBZ_JB8om-34WGaZARhpX26yWRttqIDvn4_7l--UzX8mxKcPrc59IcvTpEA_G8gPA"
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1416/8662/products/dark_knight_english_original_film_art_spo_2000x.jpg?v=1543419185",
+      "isActive": true
     },
     {
-      "id": 4,
+      "id": "4",
       "movieName": "Schindler's List",
       "language": "English",
       "genre": "Biography",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "In German-occupied Poland during WWII, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-      "imageUrl": "https://www.tallengestore.com/cdn/shop/files/SchindlersList-StevenSpielberg-HollywoodClassicWarWW2MoviePoster_96b9c719-89b0-4519-bfa2-75cb10d17249.jpg?v=1732608492"
+      "imageUrl": "https://wallpapers.com/images/hd/schindler-s-list-oskar-schindler-film-poster-guo1fmhjzfbx79tj.jpg",
+      "isActive": true
     },
     {
-      "id": 5,
+      "id": "5",
       "movieName": "Inception",
       "language": "English",
       "genre": "Sci-Fi",
       "format": "3D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A thief who enters the dreams of others to steal secrets from their subconscious is given the inverse task of planting an idea into the mind of a CEO.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
+      "isActive": true
     },
     {
-      "id": 6,
+      "id": "6",
       "movieName": "3 Idiots",
       "language": "Hindi",
       "genre": "Comedy",
       "format": "2D",
       "rating": 4.8,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Two friends embark on a quest to find their long-lost companion. They reunite with a fellow student who left their engineering college and went missing.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "isActive": true
     },
     {
-      "id": 7,
+      "id": "7",
       "movieName": "Dangal",
       "language": "Hindi",
       "genre": "Drama",
       "format": "2D",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Biographical sports drama based on the life of wrestler Mahavir Singh Phogat and his daughters, who trained to become world-class wrestlers.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_.jpg",
+      "isActive": true
     },
     {
-      "id": 8,
+      "id": "8",
       "movieName": "Lagaan",
       "language": "Hindi",
       "genre": "Sports",
       "format": "2D",
       "rating": 4.7,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A poor villager's determination to win a cricket match against the British is one of the best known underdog stories in the history of Indian cinema.",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b6/Lagaan.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b6/Lagaan.jpg",
+      "isActive": true
     },
     {
-      "id": 9,
+      "id": "9",
       "movieName": "Baahubali: The Beginning",
       "language": "Telugu",
       "genre": "Action",
       "format": "4DX",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "The young Shivudu embarks on a journey to uncover the history of his ancestry and the true legacy of his family.",
-      "imageUrl": "https://m.media-amazon.com/images/S/pv-target-images/274431b8945f779acab499a1625c2a3c9ebe1054d112aed3e55cd89c7d2ce41c.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/S/pv-target-images/274431b8945f779acab499a1625c2a3c9ebe1054d112aed3e55cd89c7d2ce41c.jpg",
+      "isActive": true
     },
     {
-      "id": 10,
+      "id": "10",
       "movieName": "Baahubali: The Conclusion",
       "language": "Telugu",
       "genre": "Action",
       "format": "4DX",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "When Bhallaladeva becomes the king, Shivudu must reclaim his kingdom and restore justice, with the help of a few brave souls.",
-      "imageUrl": "https://m.media-amazon.com/images/I/71i8a-PnChL._AC_UF1000,1000_QL80_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/I/71i8a-PnChL._AC_UF1000,1000_QL80_.jpg",
+      "isActive": true
     },
     {
-      "id": 11,
+      "id": "11",
       "movieName": "Jersey",
       "language": "Telugu",
       "genre": "Drama",
       "format": "2D",
       "rating": 4.6,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A middle-aged man, who once played cricket, is determined to make a comeback and fulfill his son’s dream of watching him play for the national team.",
-      "imageUrl": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jersey-et00077973-19-06-2018-02-57-43.jpg"
+      "imageUrl": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jersey-et00077973-19-06-2018-02-57-43.jpg",
+      "isActive": true
     },
     {
-      "id": 12,
+      "id": "12",
       "movieName": "Vikram",
       "language": "Tamil",
       "genre": "Action",
       "format": "3D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "An action-packed thriller where a special task force is sent to catch a notorious criminal mastermind.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpgESurbV4TfouGlbyrow8qC2CGwwL-Tk7A&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpgESurbV4TfouGlbyrow8qC2CGwwL-Tk7A&s",
+      "isActive": true
     },
     {
-      "id": 13,
+      "id": "13",
       "movieName": "Parasite",
       "language": "Korean",
       "genre": "Thriller",
       "format": "2D",
       "rating": 4.8,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A lower-class family becomes entangled with a wealthy family, leading to unexpected consequences and tensions.",
-      "imageUrl": "https://play-lh.googleusercontent.com/bd74_5pOTSmJmdY6-vhkHiuh7Q19-SImDevNhkLPRuWdRvikC2RzonkyznZ29Vs9l9QYg1FO6a2ixIltHIw"
+      "imageUrl": "https://th.bing.com/th/id/OIP.kdLepLWQmjPwyujL_gdQgAHaLE?w=184&h=275&c=7&r=0&o=5&pid=1.7",
+      "isActive": true
     },
     {
-      "id": 14,
+      "id": "14",
       "movieName": "Spirited Away",
       "language": "Japanese",
       "genre": "Animation",
       "format": "2D",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A young girl becomes trapped in a strange world of spirits, gods, and monsters, and must find a way to save her parents.",
-      "imageUrl": "data:image/jpeg;base64,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"
+      "imageUrl": "https://th.bing.com/th/id/OIP.V8Eub5UyKkQ0EBnA3uRvQQHaKe?rs=1&pid=ImgDetMain",
+      "isActive": true
     },
     {
-      "id": 15,
+      "id": "15",
       "movieName": "The Conjuring",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
       "rating": 4.3,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Paranormal investigators work to help a family being terrorized by a dark presence in their farmhouse.",
-      "imageUrl": "data:image/jpeg;base64,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"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzQxMjVkZjEtMDQxYy00MGIwLWE1NjYtYzZkZmU1NTFlZGFlXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg",
+      "isActive": true
     },
     {
-      "id": 16,
+      "id": "16",
       "movieName": "Insidious",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
-      "rating": 3.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 3,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A family discovers that dark spirits have invaded their home after their son falls into a mysterious coma.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTUxODU0NjQ2Nl5BMl5BanBnXkFtZTgwMTc4NDQ0MzI@._V1_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTUxODU0NjQ2Nl5BMl5BanBnXkFtZTgwMTc4NDQ0MzI@._V1_.jpg",
+      "isActive": true
     },
-
     {
-      "id": 17,
+      "id": "17",
       "movieName": "Deadpool",
       "language": "English",
       "genre": "Comedy",
       "format": "3D",
-      "rating": 3.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 3,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A wisecracking mercenary with a mutated healing factor battles the forces of evil.",
-      "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/jql8fbk0/poster/b/w/z/medium-pwl-wall-poster-13-19-inches-matte-finish-deadpool-5-original-imaek7kgagwgzhdp.jpeg?q=90&crop=false"
+      "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/jql8fbk0/poster/b/w/z/medium-pwl-wall-poster-13-19-inches-matte-finish-deadpool-5-original-imaek7kgagwgzhdp.jpeg?q=90&crop=false",
+      "isActive": true
     },
     {
-      "id": 18,
+      "id": "18",
       "movieName": "The Nun",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
-      "rating": 2.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 2,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A priest with a haunted past and a novice are sent by the Vatican to investigate the death of a young nun in Romania.",
-      "imageUrl": "https://resizing.flixster.com/a_0AGiLneCJMkGCkzqQnUVzy7pY=/fit-in/705x460/v2/https://resizing.flixster.com/HvIHuNQbszXMVbE98HIDQMsub-0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQ0NmRmYWZmLWM2ZTUtNDJhOC05YjllLWEzYjhiNjhjNDZmMy53ZWJw"
+      "imageUrl": "https://resizing.flixster.com/a_0AGiLneCJMkGCkzqQnUVzy7pY=/fit-in/705x460/v2/https://resizing.flixster.com/HvIHuNQbszXMVbE98HIDQMsub-0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQ0NmRmYWZmLWM2ZTUtNDJhOC05YjllLWEzYjhiNjhjNDZmMy53ZWJw",
+      "isActive": true
     },
     {
-      "id": 19,
+      "id": "19",
       "movieName": "Kirk",
       "language": "English",
       "genre": "Drama",
       "format": "2D",
-      "rating": 2.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 2,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A man struggles with his past and must confront dark truths in his life.",
-      "imageUrl": "https://i.pinimg.com/736x/aa/49/27/aa49277cd36b19de5888f46e8645dff6.jpg"
+      "imageUrl": "https://i.pinimg.com/736x/aa/49/27/aa49277cd36b19de5888f46e8645dff6.jpg",
+      "isActive": true
     },
     {
-      "id": 20,
+      "id": "20",
       "movieName": "The Room",
       "language": "English",
       "genre": "Drama",
       "format": "2D",
-      "rating": 1.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 1,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A man becomes deeply involved in a tumultuous love triangle, eventually spiraling into a troubled state of mind.",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/The_room_2012_vg_cover.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/The_room_2012_vg_cover.png",
+      "isActive": true
     },
     {
-      "id": 21,
+      "id": "21",
       "movieName": "Battlefield Earth",
       "language": "English",
       "genre": "Sci-Fi",
       "format": "2D",
-      "rating": 1.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 1,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A dark and corny sci-fi film where humanity fights an alien invasion with few survivors left.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvv2BMJSe5kJPFiHqo-oZ_i6keCcMMKSrbKQ&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvv2BMJSe5kJPFiHqo-oZ_i6keCcMMKSrbKQ&s",
+      "isActive": true
     },
     {
-      "id": 22,
+      "id": "22",
       "movieName": "Pushpa",
       "language": "Telugu",
       "genre": "Action/Thriller",
       "format": "2D",
       "rating": 4.7,
-      "showTimes": ["10:00AM", "1:30PM", "5:00PM", "9:00PM"],
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "9:00PM"
+      ],
       "description": "A high-octane action thriller following an undercover cop's mission to dismantle a drug cartel.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1B7HhiIHe9_Bg9UvQ2Jv3whoikbRUBywRQ&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1B7HhiIHe9_Bg9UvQ2Jv3whoikbRUBywRQ&s",
+      "isActive": true
     },
     {
-      "id": 23,
+      "id": "23",
       "movieName": "Interstellar Odyssey",
       "language": "English",
       "genre": "Sci-Fi/Adventure",
       "format": "3D",
       "rating": 4.8,
-      "showTimes": ["11:15AM", "2:45PM", "6:30PM", "10:15PM"],
+      "showTimes": [
+        "11:15AM",
+        "2:45PM",
+        "6:30PM",
+        "10:15PM"
+      ],
       "description": "A team of astronauts embarks on a perilous journey through a black hole to find a new home for humanity.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdPbPSFc_vYds000lPEzI8gcV3HhPZ16S4KbPNiRDyxXBME-BjAQzw-lHgmVWpch8ITo&usqp=CAU"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdPbPSFc_vYds000lPEzI8gcV3HhPZ16S4KbPNiRDyxXBME-BjAQzw-lHgmVWpch8ITo&usqp=CAU",
+      "isActive": true
     },
     {
-      "id": 24,
+      "id": "24",
       "movieName": "War 2: The Last Stand",
       "language": "Hindi",
       "genre": "Action/Espionage",
       "format": "4DX",
       "rating": 4.5,
-      "showTimes": ["12:00PM", "3:15PM", "7:00PM", "10:30PM"],
+      "showTimes": [
+        "12:00PM",
+        "3:15PM",
+        "7:00PM",
+        "10:30PM"
+      ],
       "description": "An elite agent goes rogue, leading to an explosive showdown with his former mentor.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS4YkD_1401er2T8WxIVcPZjHWTt8SpBDw_Q&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS4YkD_1401er2T8WxIVcPZjHWTt8SpBDw_Q&s",
+      "isActive": true
     },
     {
-      "id": 25,
+      "id": "25",
       "movieName": "Kalki",
       "language": "Telugu",
       "genre": "Mythological Action",
       "format": "4D",
       "rating": 4.7,
-      "showTimes": ["10:00AM", "1:30PM", "5:00PM", "8:30PM"],
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "8:30PM"
+      ],
       "description": "An epic retelling of Kalki Avatar's battle against cosmic evil, with 4D effects enhancing divine weapons, flying chariots, and apocalyptic storms.",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273dc8d9c8e19c16a560b5ca524"
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273dc8d9c8e19c16a560b5ca524",
+      "isActive": true
+    },
+    {
+      "id": "26",
+      "movieName": "RRR",
+      "language": "Telugu",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
+      "description": "RRR is an entirely fictitious story incorporating the lives of two real-life Indian revolutionaries.",
+      "imageUrl": "https://th.bing.com/th/id/OIP.WM5DP6inL8OhY-y1098GcQHaLG?rs=1&pid=ImgDetMain",
+      "isActive": true
+    },
+    {
+      "id": "27",
+      "movieName": "Hit 3",
+      "language": "Telugu",
+      "genre": "Thriller",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "8:30PM"
+      ],
+      "description": "HIT: The Third Case\\\" (also known as \\\"HIT 3\\\") is a Telugu crime thriller that follows Arjun Sarkaar, a top HIT officer, as he investigates a series of brutal murders",
+      "imageUrl": "https://www.filmibeat.com/img/popcorn/movie_posters/hit3-20230102145550-21504.jpg",
+      "isActive": true
+    },
+    {
+      "id": "28",
+      "movieName": "Salaar",
+      "language": "English",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "11:00 AM",
+        "2:00 PM",
+        "6:00 PM",
+        "9:00 PM"
+      ],
+      "description": "The fate of a violently contested kingdom hangs on the fraught bond between two friends-turned-foes in this saga of power, bloodshed and betrayal.",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4762e1118501859.608a514e39fa0.png",
+      "isActive": true
     }
   ]
 }

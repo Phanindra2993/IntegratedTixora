@@ -1,0 +1,132 @@
+<div class="admin-dashboard">
+  <!-- Header -->
+  <app-header class="app-header"></app-header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Admin Dashboard</h3>
+      <nav>
+        <ul>
+          <li>
+            <a routerLink="/admin/movies" routerLinkActive="active">Movies</a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-movies" routerLinkActive="active"
+              >Add Movies</a
+            >
+          </li>
+          <li>
+            <a routerLink="/admin/users" routerLinkActive="active">Users</a>
+          </li>
+          <li>
+            <a
+              routerLink="/admin/users-booking-history"
+              routerLinkActive="active"
+            >
+              Users Booking History
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <h2 class="page-title">Available Movies...</h2>
+      <div class="movies-grid">
+        
+        <nz-card
+          *ngFor="let movie of movies"
+          nzHoverable
+          [ngClass]="{ inactive: !movie.isActive }"
+          style="width: 200px; margin: 10px"
+          [nzCover]="coverTemplate"
+        >
+          <ng-template #coverTemplate >
+            <img
+              class="movie-image"
+              style="background-size: cover; object-fit: cover;"
+    
+              alt="movie cover"
+              [src]="movie?.imageUrl || 'https://via.placeholder.com/150'"
+            />
+          </ng-template>
+          <nz-card-meta
+            [nzTitle]="movie?.movieName || 'Untitled Movie'"
+            [nzDescription]="movie?.genre || 'Genre Not Available'"
+          >
+          </nz-card-meta>
+          <div class="card-actions">
+            <div class="top-actions">
+              <button nz-button nzType="primary" (click)="openModal(movie)">Modify</button>
+              <button nz-button nzType="default" nzDanger (click)="deleteMovie(movie.id)">
+                Delete
+              </button>
+            </div>
+            <div class="bottom-action">
+              <button
+                nz-button
+                [nzType]="movie.isActive ? 'default' : 'primary'"
+                (click)="toggleMovieStatus(movie)"
+              >
+                {{ movie.isActive ? 'Inactive' : 'Active' }}
+              </button>
+            </div>
+          </div>
+        </nz-card>
+      </div>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <nz-modal
+    [(nzVisible)]="isModalVisible"
+    nzTitle="Edit Movie"
+    nzOkText="Save"
+    nzCancelText="Cancel"
+    (nzOnOk)="saveMovie()"
+    (nzOnCancel)="closeModal()"
+  >
+    <ng-container *nzModalContent>
+      <form [formGroup]="movieForm">
+        <label>
+          Movie Name:
+          <input type="text" formControlName="movieName" />
+        </label>
+        <label>
+          Genre:
+          <input type="text" formControlName="genre" />
+        </label>
+        <label>
+          Language:
+          <input type="text" formControlName="language" />
+        </label>
+        <label>
+          Format:
+          <input type="text" formControlName="format" />
+        </label>
+        <label>
+          Rating:
+          <input type="number" formControlName="rating" min="0" max="5" />
+        </label>
+        <label>
+          Show Times:
+          <select formControlName="showTimes">
+            <option *ngFor="let time of availableShowTimes" [value]="time">
+              {{ time }}
+            </option>
+          </select>
+        </label>
+        <label>
+          Description:
+          <textarea formControlName="description"></textarea>
+        </label>
+        <label>
+          Image URL:
+          <input type="text" formControlName="imageUrl" />
+        </label>
+      </form>
+    </ng-container>
+  </nz-modal>
+</div>

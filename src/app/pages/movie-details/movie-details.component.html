@@ -3,7 +3,12 @@
 <div class="movie-details-container">
   <div class="movie-main">
     <div class="poster">
-      <img [src]="movie.imageUrl" alt="Movie Poster" />
+      <a href="https://youtu.be/PLl99DlL6b4?si=9dvyOpf_YdON7Afd" target="_blank">
+        <img [src]="movie.imageUrl" alt="Movie Poster" />
+        <div class="play-button">
+          <i class="fas fa-play"></i>
+        </div>
+      </a>
     </div>
     <div class="details">
       <h2>{{ movie.movieName }}</h2>

@@ -1,0 +1,114 @@
+<div class="admin-add-movies">
+  <!-- Optional Header -->
+  <app-header class="app-header"></app-header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <h3>Admin Dashboard</h3>
+      <nav>
+        <ul>
+          <li>
+            <a routerLink="/admin/movies" routerLinkActive="active">Movies</a>
+          </li>
+          <li>
+            <a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a>
+          </li>
+          <li>
+            <a routerLink="/admin/users" routerLinkActive="active">Users</a>
+          </li>
+          <li>
+            <a
+              routerLink="/admin/users-booking-history"
+              routerLinkActive="active"
+            >
+              Users Booking History
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <h2 class="page-title">Add Movies</h2>
+
+        <label>
+          Movie Name:
+          <input
+            type="text"
+            formControlName="movieName"
+            placeholder="Enter movie name"
+          />
+        </label>
+
+        <label>
+          Language:
+          <select formControlName="language">
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Telugu">Telugu</option>
+          </select>
+        </label>
+
+        <label>
+          Genre:
+          <select formControlName="genre">
+            <option value="Drama">Drama</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Thriller">Thriller</option>
+          </select>
+        </label>
+
+        <label>
+          Format:
+          <select formControlName="format">
+            <option value="2D">2D</option>
+            <option value="3D">3D</option>
+            <option value="4DX">4DX</option>
+          </select>
+        </label>
+
+        <label>
+          Rating:
+          <input
+            type="number"
+            formControlName="rating"
+            min="0"
+            max="5"
+            placeholder="Enter rating (0-5)"
+          />
+        </label>
+
+        <label>
+          Show Times (comma-separated):
+          <input
+            type="text"
+            formControlName="showTimes"
+            placeholder="e.g., 11:00AM, 2:00PM, 6:00PM"
+          />
+        </label>
+
+        <label>
+          Description:
+          <textarea
+            formControlName="description"
+            placeholder="Enter movie description"
+          ></textarea>
+        </label>
+
+        <label>
+          Image URL:
+          <input
+            type="text"
+            formControlName="imageUrl"
+            placeholder="Enter image URL"
+          />
+        </label>
+
+        <button type="submit">Add Movie</button>
+      </form>
+    </main>
+  </div>
+</div>
