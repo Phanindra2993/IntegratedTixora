@@ -8,7 +8,13 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [NzButtonModule, SearchBarComponent, NzIconModule, RouterLink,CommonModule],
+  imports: [
+    NzButtonModule,
+    SearchBarComponent,
+    NzIconModule,
+    RouterLink,
+    CommonModule,
+  ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
@@ -16,12 +22,17 @@ export class HeaderComponent {
   isLoggedIn = false;
 
   constructor(private authService: AuthService, private router: Router) {}
-  ngOnInit():void{
-    this.isLoggedIn=!!this.authService.getCurrentUser();
+  ngOnInit(): void {
+    this.isLoggedIn = !!this.authService.getCurrentUser();
+
+    const user = localStorage.getItem('loggedInUser');
+    if (user) {
+      this.loggedInUser = JSON.parse(user);
+    }
   }
   logout() {
     this.authService.logout();
-    this.isLoggedIn=false;
+    this.isLoggedIn = false;
     this.router.navigate(['/login']);
   }
 
@@ -30,6 +41,9 @@ export class HeaderComponent {
   onSearchReceived(query: string) {
     this.searchEvent.emit(query);
   }
+
+  loggedInUser: any = null;
+  userProfileImage: string = 'assets/default-user.jpg'; // default fallback
 }
 
 // import { Component, EventEmitter, Output } from '@angular/core';

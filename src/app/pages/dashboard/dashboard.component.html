@@ -1,161 +1,203 @@
+<!-- <div class="carousal-container">
+      <app-carousal></app-carousal>
+    </div> -->
 <div class="dash-container">
-    <app-header class="app-header" (searchEvent)="onSearch($event)"></app-header>
-    <div class="main-layout">
-      <!-- <div class="carousal-container">
-        <app-carousal></app-carousal>
-      </div> -->
-      <aside class="sidebar">
-        <section class="filter-group">
-          <h3>Language</h3>
-          <div class="filter-options">
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedLanguage === 'English' }"
-              (click)="onLanguageFilter('English')"
-            >
-              English
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedLanguage === 'Hindi' }"
-              (click)="onLanguageFilter('Hindi')"
-            >
-              Hindi
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedLanguage === 'Telugu' }"
-              (click)="onLanguageFilter('Telugu')"
-            >
-              Telugu
-            </button>
-          </div>
-        </section>
-  
-        <section class="filter-group">
-          <h3>Genre</h3>
-          <div class="filter-options">
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedGenre === 'Comedy' }"
-              (click)="onGenreFilter('Comedy')"
-            >
-              Comedy
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedGenre === 'Horror' }"
-              (click)="onGenreFilter('Horror')"
-            >
-              Horror
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedGenre === 'Thriller' }"
-              (click)="onGenreFilter('Thriller')"
-            >
-              Thriller
-            </button>
-          </div>
-        </section>
-        <section class="filter-group">
-          <h3>Rating</h3>
-          <div class="filter-options">
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedRating === 5 }"
-              (click)="onRatingFilter(5)"
-            >
-              5 ⭐
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedRating === 4 }"
-              (click)="onRatingFilter(4)"
-            >
-              4 ⭐
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedRating === 3 }"
-              (click)="onRatingFilter(3)"
-            >
-              3 ⭐
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedRating === 2 }"
-              (click)="onRatingFilter(2)"
-            >
-              2 ⭐
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedRating === 1 }"
-              (click)="onRatingFilter(1)"
-            >
-              1 ⭐
-            </button>
-          </div>
-        </section>
-  
-        <section class="filter-group">
-          <h3>Format</h3>
-          <div class="filter-options">
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedFormat === '2D' }"
-              (click)="onFormatFilter('2D')"
-            >
-              2D
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedFormat === '3D' }"
-              (click)="onFormatFilter('3D')"
-            >
-              3D
-            </button>
-            <button
-              class="filter-btn"
-              [ngClass]="{ active: selectedFormat === '4DX' }"
-              (click)="onFormatFilter('4DX')"
-            >
-              4DX
-            </button>
-          </div>
-        </section>
-        <button
-          class="clear-filters-btn"
-          (click)="resetFilters()"
-          nz-button
-          nzType="primary"
-        >
-          Clear Filters
-        </button>
-      </aside>
-      <main class="movies-container">
+
+
+  <app-header class="app-header" (searchEvent)="onSearch($event)"></app-header>
+  <div class="main-layout">
+    <aside class="sidebar">
+      <section class="filter-group">
+        <h3>Language</h3>
+        <div class="filter-options">
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedLanguage.includes('English') }"
+            (click)="onLanguageFilter('English')"
+          >
+            English
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedLanguage.includes('Hindi') }"
+            (click)="onLanguageFilter('Hindi')"
+          >
+            Hindi
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedLanguage.includes('Telugu') }"
+            (click)="onLanguageFilter('Telugu')"
+          >
+            Telugu
+          </button>
+        </div>
+      </section>
+
+      <section class="filter-group">
+        <h3>Genre</h3>
+        <div class="filter-options">
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedGenre.includes('Comedy') }"
+            (click)="onGenreFilter('Comedy')"
+          >
+            Comedy
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedGenre.includes('Horror') }"
+            (click)="onGenreFilter('Horror')"
+          >
+            Horror
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedGenre.includes('Thriller') }"
+            (click)="onGenreFilter('Thriller')"
+          >
+            Thriller
+          </button>
+        </div>
+      </section>
+      <section class="filter-group">
+        <h3>Rating</h3>
+        <div class="filter-options">
+          <!-- <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating === 5 }"
+            (click)="onRatingFilter(5)"
+          >
+            5 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating === 4 }"
+            (click)="onRatingFilter(4)"
+          >
+            4 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating === 3 }"
+            (click)="onRatingFilter(3)"
+          >
+            3 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating === 2 }"
+            (click)="onRatingFilter(2)"
+          >
+            2 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating === 1 }"
+            (click)="onRatingFilter(1)"
+          >
+            1 ⭐
+          </button> -->
+
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating.includes(5) }"
+            (click)="onRatingFilter(5)"
+          >
+            5 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating.includes(4) }"
+            (click)="onRatingFilter(4)"
+          >
+            4 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating.includes(3) }"
+            (click)="onRatingFilter(3)"
+          >
+            3 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating.includes(2) }"
+            (click)="onRatingFilter(2)"
+          >
+            2 ⭐
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedRating.includes(1) }"
+            (click)="onRatingFilter(1)"
+          >
+            1 ⭐
+          </button>
+        </div>
+      </section>
+
+      <section class="filter-group">
+        <h3>Format</h3>
+        <div class="filter-options">
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedFormat.includes('2D') }"
+            (click)="onFormatFilter('2D')"
+          >
+            2D
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedFormat.includes('3D') }"
+            (click)="onFormatFilter('3D')"
+          >
+            3D
+          </button>
+          <button
+            class="filter-btn"
+            [ngClass]="{ active: selectedFormat.includes('4DX') }"
+            (click)="onFormatFilter('4DX')"
+          >
+            4DX
+          </button>
+        </div>
+      </section>
+      <button
+        class="clear-filters-btn"
+        (click)="resetFilters()"
+        nz-button
+        nzType="primary"
+      >
+        Clear Filters
+      </button>
+    </aside>
+    <main class="movies-container">
+      <div class="box">
         <h2>Available Movies...</h2>
-        <div class="movie-card-container">
-          <div *ngIf="isLoading" class="loading">Loading Movies...</div>
-          <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
-  
-          <div *ngIf="!isLoading && !errorMessage && movies.length === 0">
-            No movies found.
-          </div>
-          <div *ngIf="!isLoading && !errorMessage && filteredMovies.length === 0">
-            <h1 class="no-movies-text">
-              No movies found for the selected filters...
-            </h1>
-          </div>
-          <div *ngIf="!isLoading && !errorMessage">
-            <div class="movie-list">
-              <ng-container *ngFor="let movie of filteredMovies">
-                <a class="card" [routerLink]="['/movie-details', movie.id]">
-                  <app-movie-card [movie]="movie"></app-movie-card>
-                </a>
-              </ng-container>
-            </div>
+        <a routerLink="/booking-history" class="nav-link">Booking History</a>
+      </div>
+
+      <div class="movie-card-container">
+        <div *ngIf="isLoading" class="loading">Loading Movies...</div>
+        <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
+
+        <div *ngIf="!isLoading && !errorMessage && movies.length === 0">
+          No movies found.
+        </div>
+        <div *ngIf="!isLoading && !errorMessage && filteredMovies.length === 0">
+          <h1 class="no-movies-text">
+            No movies found for the selected filters...
+          </h1>
+        </div>
+        <div *ngIf="!isLoading && !errorMessage">
+          <div class="movie-list">
+            <ng-container *ngFor="let movie of filteredMovies">
+              <a class="card" [routerLink]="['/movie-details', movie.id]">
+                <app-movie-card [movie]="movie"></app-movie-card>
+              </a>
+            </ng-container>
+
           </div>
         </div>
       </main>

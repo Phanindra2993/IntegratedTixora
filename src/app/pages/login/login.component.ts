@@ -34,6 +34,11 @@
 
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+
+
+import { HeaderComponent } from '../../../components/header/header.component';
+import { FooterComponent } from '../../../components/footer/footer.component';
+
 import { AuthService } from '../../../_services/auth.service';
 import { HeaderComponent } from "../../../components/header/header.component";
 import { FormsModule } from '@angular/forms';
@@ -43,6 +48,15 @@ import { FooterComponent } from '../../../components/footer/footer.component';
 @Component({
   selector: 'app-login',
   standalone: true,
+
+  imports: [
+    FormsModule,
+    CommonModule,
+    HeaderComponent,
+    FooterComponent,
+    RouterLink,
+  ],
+
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [FormsModule, CommonModule, RouterLink, HeaderComponent, FooterComponent],
@@ -55,6 +69,7 @@ export class LoginComponent {
 
   constructor(private router: Router, private authService: AuthService) {}
 
+
   onSubmit() {
     const success = this.authService.login(this.formData.Email, this.formData.Password);
     if (success) {
@@ -66,6 +81,7 @@ export class LoginComponent {
         // Redirect to user dashboard
         this.router.navigate(['/']);
       }
+
     } else {
       alert('Invalid email or password');
     }

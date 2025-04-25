@@ -106,9 +106,12 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
+
   private usersKey = 'users'; // Key for storing all users
   private loggedInUserKey = 'loggedInUser'; // Key for storing the logged-in user
+
 
   constructor() {}
 
@@ -116,25 +119,27 @@ export class AuthService {
   registerUser(userData: any): boolean {
     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
     const userExists = users.some((user: any) => user.Email === userData.Email);
+
     if (userExists) return false;
-  
-    // Ensure FirstName, LastName, and role fields are added
-    const newUser = {
-      FirstName: userData.FirstName || 'N/A',
-      LastName: userData.LastName || 'N/A',
-      Email: userData.Email,
-      Password: userData.Password,
-      number: userData.number || 'N/A',
-      role: userData.role || 'user', // Default role is 'user'
-    };
-  
-    users.push(newUser);
+// Ensure FirstName, LastName, role, and userId fields are added
+const newUser = {
+  FirstName: userData.FirstName || 'N/A',
+  LastName: userData.LastName || 'N/A',
+  Email: userData.Email,
+  Password: userData.Password,
+  number: userData.number || 'N/A',
+  role: userData.role || 'user', // Default role is 'user'
+  userId: new Date().getTime(),  // Unique user ID
+};
+
+users.push(newUser);
     localStorage.setItem(this.usersKey, JSON.stringify(users));
     return true;
   }
 
-  // Login a user
-  login(email: string, password: string): boolean {
+
+  login(email: string, password: string): any {
+
     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
     const matchedUser = users.find(
       (user: any) => user.Email === email && user.Password === password
@@ -142,20 +147,23 @@ export class AuthService {
 
     if (matchedUser) {
       localStorage.setItem(this.loggedInUserKey, JSON.stringify(matchedUser));
-      return true;
+
+      return matchedUser;
     }
-    return false;
+
+    return null;
   }
 
-  // Logout the current user
   logout(): void {
     localStorage.removeItem(this.loggedInUserKey);
   }
 
-  // Get the currently logged-in user
+
+
   getCurrentUser(): any {
     return JSON.parse(localStorage.getItem(this.loggedInUserKey) || 'null');
   }
+
 
   // Get the role of the currently logged-in user
   getCurrentUserRole(): string | null {
@@ -198,3 +206,9 @@ export class AuthService {
 
   
 }
+
+  isLoggedIn(): boolean {
+    return !!this.getCurrentUser();
+  }
+}
+

@@ -196,9 +196,14 @@ import { RegisterComponent } from './pages/register/register.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsOfServiceComponent } from './pages/terms-of-service/terms-of-service.component';
 import { HelpPageComponent } from './pages/help-page/help-page.component';
+
 import { AdminDashboardComponent } from './pages/admin-dashboard/admin-dashboard.component';
 import { AdminAddMoviesComponent } from './pages/admin-add-movies/admin-add-movies.component';
 import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
+
+import { authGuard } from './guards/auth.guard';
+import { BookingHistoryComponent } from './pages/booking-history/booking-history.component';
+
 
 export const routes: Routes = [
   // User Dashboard Route
@@ -225,6 +230,7 @@ export const routes: Routes = [
     component: TicketComponent, // Ticket details page
   },
 
+
   // User Login and Register Routes
   {
     path: 'login',
@@ -234,6 +240,7 @@ export const routes: Routes = [
     path: 'register',
     component: RegisterComponent, // Register page
   },
+
 
   // Admin Routes
   {
@@ -264,7 +271,35 @@ export const routes: Routes = [
   { path: 'terms-of-service', component: TermsOfServiceComponent },
   { path: 'help', component: HelpPageComponent },
 
+
   // Fallback Route
+
+  {
+    path: 'movie-details/:id',
+    component: MovieDetailsComponent,
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'book-tickets/:id',
+    component: BookTicketsComponent,
+    canActivate: [authGuard],
+  },
+
+  {
+    path: 'ticket',
+    component: TicketComponent,
+  },
+  {
+    path: 'ticket/:id',
+    component: TicketComponent,
+    canActivate: [authGuard],
+  },
+  {
+    path: 'booking-history',
+    component: BookingHistoryComponent,
+  },
+
   {
     path: '**',
     redirectTo: '', // Redirect to user dashboard for undefined paths

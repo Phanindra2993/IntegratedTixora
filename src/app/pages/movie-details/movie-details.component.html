@@ -17,7 +17,8 @@
         <span class="tag">{{ movie.language }}</span>
       </div>
       <p style="width: 40vw;" class="description">{{ movie.description }}</p>
-      <button class="book-btn">Book Tickets</button>
+
+      <button [routerLink]="['/book-tickets',movie.id]" class="book-btn">Book Tickets</button>
     </div>
   </div>
   <div class="related">
@@ -29,12 +30,6 @@
           <app-movie-card [movie]="movie"></app-movie-card>
         </a>
       </ng-container>
-
-      <!-- <ng-container *ngFor="let movie of filteredMovies">
-        <a class="card" [routerLink]="['/movie-details', movie.id]">
-          <app-movie-card [movie]="movie"></app-movie-card>
-        </a>
-      </ng-container> -->
     </div>
   </div>
 </div>

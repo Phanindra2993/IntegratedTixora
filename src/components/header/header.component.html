@@ -20,12 +20,22 @@
       </button>
     </ng-container>
     <ng-template #logoutTemplate>
-      <button (click)="logout()" nz-button nzType="primary" nzDanger="">Logout</button>
+      <button (click)="logout()" nz-button nzType="primary" nzDanger="">
+        Logout
+      </button>
     </ng-template>
   </div>
-  <div>
+
+  <div class="user-profile" *ngIf="loggedInUser">
+    <span class="greeting">Hi, {{ loggedInUser.FirstName }}</span>
     <nz-icon class="user-icon" nzType="user" nzTheme="outline" />
   </div>
+  
+  <div  *ngIf="!loggedInUser">
+    <nz-icon class="user-icon" nzType="user" nzTheme="outline" />
+  </div>
+
+
 </header>
 
 <!-- <header class="app-header">

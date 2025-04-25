@@ -109,8 +109,50 @@
     justify-content: center;
     align-items: center;
   }
-  .no-movies-text{
-    color: orange;
-    padding: 10px;
-    border: 2px dotted orange;
-  }
+
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-link {
+  padding: 5px;
+  outline: 1px solid #1890ff;
+}
+.movies-container {
+  height: 100%;
+  padding: 1rem;
+  overflow-x: auto;
+}
+.movies-container h2 {
+  font-style: italic;
+  font-weight: bold;
+  margin-left: 65px;
+}
+.movie-list {
+  //  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  justify-content: center;
+}
+
+.card {
+  padding: 10px;
+}
+
+.clear-filters-btn {
+  margin-left: 20px;
+}
+.movie-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.no-movies-text {
+  color: orange;
+  padding: 10px;
+  border: 2px dotted orange;
+}
+

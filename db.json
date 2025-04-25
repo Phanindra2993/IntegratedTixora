@@ -218,8 +218,10 @@
         "9:00PM"
       ],
       "description": "A lower-class family becomes entangled with a wealthy family, leading to unexpected consequences and tensions.",
+
       "imageUrl": "https://th.bing.com/th/id/OIP.kdLepLWQmjPwyujL_gdQgAHaLE?w=184&h=275&c=7&r=0&o=5&pid=1.7",
       "isActive": true
+
     },
     {
       "id": "14",
@@ -235,8 +237,10 @@
         "9:00PM"
       ],
       "description": "A young girl becomes trapped in a strange world of spirits, gods, and monsters, and must find a way to save her parents.",
+
       "imageUrl": "https://th.bing.com/th/id/OIP.V8Eub5UyKkQ0EBnA3uRvQQHaKe?rs=1&pid=ImgDetMain",
       "isActive": true
+
     },
     {
       "id": "15",
@@ -252,8 +256,10 @@
         "9:00PM"
       ],
       "description": "Paranormal investigators work to help a family being terrorized by a dark presence in their farmhouse.",
+
       "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzQxMjVkZjEtMDQxYy00MGIwLWE1NjYtYzZkZmU1NTFlZGFlXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg",
       "isActive": true
+
     },
     {
       "id": "16",

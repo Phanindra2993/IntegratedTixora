@@ -1,7 +1,8 @@
-import { Component, Input, NgModule, OnInit } from '@angular/core';
-import { NzCardModule } from 'ng-zorro-antd/card';
 import { Movie } from '../../_models/movies.model';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
+
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 @Component({
   selector: 'app-movie-card',
