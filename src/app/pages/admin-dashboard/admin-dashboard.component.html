@@ -1,10 +1,12 @@
+<!-- Header -->
+<app-header class="app-header"></app-header>
 <div class="admin-dashboard">
-  <!-- Header -->
-  <app-header class="app-header"></app-header>
-
-  <div class="dashboard-layout">
+  <div class="dashboard-layout" >
     <!-- Sidebar -->
-    <aside class="sidebar">
+    <aside
+      class="sidebar"
+      
+    >
       <h3>Admin Dashboard</h3>
       <nav>
         <ul>
@@ -19,23 +21,23 @@
           <li>
             <a routerLink="/admin/users" routerLinkActive="active">Users</a>
           </li>
-          <li>
+          <!-- <li>
             <a
               routerLink="/admin/users-booking-history"
               routerLinkActive="active"
             >
               Users Booking History
             </a>
-          </li>
+          </li> -->
         </ul>
       </nav>
     </aside>
 
     <!-- Main Content -->
-    <main class="main-content">
+
+    <main class="main-content" >
       <h2 class="page-title">Available Movies...</h2>
-      <div class="movies-grid">
-        
+      <div class="movies-grid" >
         <nz-card
           *ngFor="let movie of movies"
           nzHoverable
@@ -43,11 +45,10 @@
           style="width: 200px; margin: 10px"
           [nzCover]="coverTemplate"
         >
-          <ng-template #coverTemplate >
+          <ng-template #coverTemplate>
             <img
               class="movie-image"
-              style="background-size: cover; object-fit: cover;"
-    
+              style="background-size: cover; object-fit: cover"
               alt="movie cover"
               [src]="movie?.imageUrl || 'https://via.placeholder.com/150'"
             />
@@ -59,8 +60,15 @@
           </nz-card-meta>
           <div class="card-actions">
             <div class="top-actions">
-              <button nz-button nzType="primary" (click)="openModal(movie)">Modify</button>
-              <button nz-button nzType="default" nzDanger (click)="deleteMovie(movie.id)">
+              <button nz-button nzType="primary" (click)="openModal(movie)">
+                Modify
+              </button>
+              <button
+                nz-button
+                nzType="default"
+                nzDanger
+                (click)="deleteMovie(movie.id)"
+              >
                 Delete
               </button>
             </div>
@@ -70,7 +78,7 @@
                 [nzType]="movie.isActive ? 'default' : 'primary'"
                 (click)="toggleMovieStatus(movie)"
               >
-                {{ movie.isActive ? 'Inactive' : 'Active' }}
+                {{ movie.isActive ? "Inactive" : "Active" }}
               </button>
             </div>
           </div>
@@ -130,3 +138,4 @@
     </ng-container>
   </nz-modal>
 </div>
+<app-footer></app-footer>

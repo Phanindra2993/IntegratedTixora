@@ -2,17 +2,19 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    top: 10vh;
   
     .dashboard-layout {
       display: flex;
       flex: 1;
+      width: 100%;
     }
     
   
     /* Sidebar */
     .sidebar {
-      width: 200px;
-      
+      width: 15vw;
       background-color: #001529;
       color: #fff;
       padding: 1rem 0;
@@ -51,6 +53,8 @@
       flex: 1;
       padding: 2rem;
       background-color: #f5f5f5;
+      
+      
   
       .page-title {
         font-size: 28px;
@@ -64,6 +68,8 @@
         flex-wrap: wrap;
         justify-content: flex-start;
         gap: 1rem;
+        justify-content: center;
+        align-items: center;
   
         .movie-image {
           width: 100%;
@@ -179,3 +185,11 @@
       color: #000;
     }
   }
+
+  .app-header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+

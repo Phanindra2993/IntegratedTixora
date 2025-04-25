@@ -475,6 +475,23 @@
       "description": "The fate of a violently contested kingdom hangs on the fraught bond between two friends-turned-foes in this saga of power, bloodshed and betrayal.",
       "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4762e1118501859.608a514e39fa0.png",
       "isActive": true
+    },
+    {
+      "id": "29",
+      "movieName": "The Wolf of Wall Street",
+      "language": "English",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "11:00 AM",
+        "2:00 PM",
+        "6:00 PM",
+        "9:00 PM"
+      ],
+      "description": "\"The Wolf of Wall Street\" tells the story of Jordan Belfort, a penny stockbroker who rises to wealth through fraudulent schemes before his downfall.",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/0bbc1f101643535.5f2345cf9772a.jpg",
+      "isActive": true
     }
   ]
 }

@@ -12,7 +12,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [HeaderComponent, FormsModule, CommonModule, RouterLink, NzCardModule, NzButtonModule, NzModalModule,ReactiveFormsModule],
+  imports: [HeaderComponent, FormsModule, CommonModule, RouterLink, NzCardModule, NzButtonModule, NzModalModule, ReactiveFormsModule, FooterComponent],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
 })
