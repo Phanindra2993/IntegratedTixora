@@ -1,280 +1,503 @@
 {
   "movies": [
     {
-      "id": 1,
+      "id": "1",
       "movieName": "The Shawshank Redemption",
       "language": "English",
-      "genre": "Drama",
+      "genre": "Crime",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
-      "description": "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMDAyY2FhYjctNDc5OS00MDNlLThiMGUtY2UxYWVkNGY2ZjljXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
+      "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
+      "imageUrl": "https://th.bing.com/th/id/OIP.-4OO96SRH00tOP4F0HnKVgHaLG?rs=1&pid=ImgDetMain",
+      "isActive": true
     },
     {
-      "id": 2,
+      "id": "2",
       "movieName": "The Godfather",
       "language": "English",
       "genre": "Crime",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.",
-      "imageUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQAY2xsJVIZxm3K0gNtOMr9CSCvLdr5kdo3V3pv2HMuUkTBhFzRe5-b8NDRmO1mt5S5Xp_YyQ"
+      "imageUrl": "https://th.bing.com/th/id/OIP.u5lvdFqa0C_9hkIh5t47XgHaLH?rs=1&pid=ImgDetMain",
+      "isActive": true
     },
     {
-      "id": 3,
+      "id": "3",
       "movieName": "The Dark Knight",
       "language": "English",
       "genre": "Action",
       "format": "4DX",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "When the menace known as The Joker emerges from his mysterious past, he wreaks havoc and chaos on the people of Gotham.",
-      "imageUrl": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTfE_qrYMBZ_JB8om-34WGaZARhpX26yWRttqIDvn4_7l--UzX8mxKcPrc59IcvTpEA_G8gPA"
+      "imageUrl": "https://cdn.shopify.com/s/files/1/1416/8662/products/dark_knight_english_original_film_art_spo_2000x.jpg?v=1543419185",
+      "isActive": true
     },
     {
-      "id": 4,
+      "id": "4",
       "movieName": "Schindler's List",
       "language": "English",
       "genre": "Biography",
       "format": "2D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "In German-occupied Poland during WWII, Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.",
-      "imageUrl": "https://www.tallengestore.com/cdn/shop/files/SchindlersList-StevenSpielberg-HollywoodClassicWarWW2MoviePoster_96b9c719-89b0-4519-bfa2-75cb10d17249.jpg?v=1732608492"
+      "imageUrl": "https://wallpapers.com/images/hd/schindler-s-list-oskar-schindler-film-poster-guo1fmhjzfbx79tj.jpg",
+      "isActive": true
     },
     {
-      "id": 5,
+      "id": "5",
       "movieName": "Inception",
       "language": "English",
       "genre": "Sci-Fi",
       "format": "3D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A thief who enters the dreams of others to steal secrets from their subconscious is given the inverse task of planting an idea into the mind of a CEO.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_FMjpg_UX1000_.jpg",
+      "isActive": true
     },
     {
-      "id": 6,
+      "id": "6",
       "movieName": "3 Idiots",
       "language": "Hindi",
       "genre": "Comedy",
       "format": "2D",
       "rating": 4.8,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Two friends embark on a quest to find their long-lost companion. They reunite with a fellow student who left their engineering college and went missing.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BNzc4ZWQ3NmYtODE0Ny00YTQ4LTlkZWItNTBkMGQ0MmUwMmJlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+      "isActive": true
     },
     {
-      "id": 7,
+      "id": "7",
       "movieName": "Dangal",
       "language": "Hindi",
       "genre": "Drama",
       "format": "2D",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Biographical sports drama based on the life of wrestler Mahavir Singh Phogat and his daughters, who trained to become world-class wrestlers.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTQ4MzQzMzM2Nl5BMl5BanBnXkFtZTgwMTQ1NzU3MDI@._V1_.jpg",
+      "isActive": true
     },
     {
-      "id": 8,
+      "id": "8",
       "movieName": "Lagaan",
       "language": "Hindi",
       "genre": "Sports",
       "format": "2D",
       "rating": 4.7,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A poor villager's determination to win a cricket match against the British is one of the best known underdog stories in the history of Indian cinema.",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b6/Lagaan.jpg"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/b/b6/Lagaan.jpg",
+      "isActive": true
     },
     {
-      "id": 9,
+      "id": "9",
       "movieName": "Baahubali: The Beginning",
       "language": "Telugu",
       "genre": "Action",
       "format": "4DX",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "The young Shivudu embarks on a journey to uncover the history of his ancestry and the true legacy of his family.",
-      "imageUrl": "https://m.media-amazon.com/images/S/pv-target-images/274431b8945f779acab499a1625c2a3c9ebe1054d112aed3e55cd89c7d2ce41c.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/S/pv-target-images/274431b8945f779acab499a1625c2a3c9ebe1054d112aed3e55cd89c7d2ce41c.jpg",
+      "isActive": true
     },
     {
-      "id": 10,
+      "id": "10",
       "movieName": "Baahubali: The Conclusion",
       "language": "Telugu",
       "genre": "Action",
       "format": "4DX",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "When Bhallaladeva becomes the king, Shivudu must reclaim his kingdom and restore justice, with the help of a few brave souls.",
-      "imageUrl": "https://m.media-amazon.com/images/I/71i8a-PnChL._AC_UF1000,1000_QL80_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/I/71i8a-PnChL._AC_UF1000,1000_QL80_.jpg",
+      "isActive": true
     },
     {
-      "id": 11,
+      "id": "11",
       "movieName": "Jersey",
       "language": "Telugu",
       "genre": "Drama",
       "format": "2D",
       "rating": 4.6,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A middle-aged man, who once played cricket, is determined to make a comeback and fulfill his son’s dream of watching him play for the national team.",
-      "imageUrl": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jersey-et00077973-19-06-2018-02-57-43.jpg"
+      "imageUrl": "https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/jersey-et00077973-19-06-2018-02-57-43.jpg",
+      "isActive": true
     },
     {
-      "id": 12,
+      "id": "12",
       "movieName": "Vikram",
       "language": "Tamil",
       "genre": "Action",
       "format": "3D",
-      "rating": 5.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "An action-packed thriller where a special task force is sent to catch a notorious criminal mastermind.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpgESurbV4TfouGlbyrow8qC2CGwwL-Tk7A&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdpgESurbV4TfouGlbyrow8qC2CGwwL-Tk7A&s",
+      "isActive": true
     },
     {
-      "id": 13,
+      "id": "13",
       "movieName": "Parasite",
       "language": "Korean",
       "genre": "Thriller",
       "format": "2D",
       "rating": 4.8,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A lower-class family becomes entangled with a wealthy family, leading to unexpected consequences and tensions.",
-      "imageUrl": "https://th.bing.com/th/id/OIP.kdLepLWQmjPwyujL_gdQgAHaLE?w=184&h=275&c=7&r=0&o=5&pid=1.7"
+
+      "imageUrl": "https://th.bing.com/th/id/OIP.kdLepLWQmjPwyujL_gdQgAHaLE?w=184&h=275&c=7&r=0&o=5&pid=1.7",
+      "isActive": true
+
     },
     {
-      "id": 14,
+      "id": "14",
       "movieName": "Spirited Away",
       "language": "Japanese",
       "genre": "Animation",
       "format": "2D",
       "rating": 4.9,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A young girl becomes trapped in a strange world of spirits, gods, and monsters, and must find a way to save her parents.",
-      "imageUrl": "https://th.bing.com/th/id/OIP.V8Eub5UyKkQ0EBnA3uRvQQHaKe?rs=1&pid=ImgDetMain"
+
+      "imageUrl": "https://th.bing.com/th/id/OIP.V8Eub5UyKkQ0EBnA3uRvQQHaKe?rs=1&pid=ImgDetMain",
+      "isActive": true
+
     },
     {
-      "id": 15,
+      "id": "15",
       "movieName": "The Conjuring",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
       "rating": 4.3,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "Paranormal investigators work to help a family being terrorized by a dark presence in their farmhouse.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMntAe0YLYbjnJwMhqCJEnuTP6UG1b_a0CnA&s"
+
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BYzQxMjVkZjEtMDQxYy00MGIwLWE1NjYtYzZkZmU1NTFlZGFlXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_.jpg",
+      "isActive": true
+
     },
     {
-      "id": 16,
+      "id": "16",
       "movieName": "Insidious",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
-      "rating": 3.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 3,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A family discovers that dark spirits have invaded their home after their son falls into a mysterious coma.",
-      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTUxODU0NjQ2Nl5BMl5BanBnXkFtZTgwMTc4NDQ0MzI@._V1_.jpg"
+      "imageUrl": "https://m.media-amazon.com/images/M/MV5BMTUxODU0NjQ2Nl5BMl5BanBnXkFtZTgwMTc4NDQ0MzI@._V1_.jpg",
+      "isActive": true
     },
-
     {
-      "id": 17,
+      "id": "17",
       "movieName": "Deadpool",
       "language": "English",
       "genre": "Comedy",
       "format": "3D",
-      "rating": 3.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 3,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A wisecracking mercenary with a mutated healing factor battles the forces of evil.",
-      "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/jql8fbk0/poster/b/w/z/medium-pwl-wall-poster-13-19-inches-matte-finish-deadpool-5-original-imaek7kgagwgzhdp.jpeg?q=90&crop=false"
+      "imageUrl": "https://rukminim2.flixcart.com/image/850/1000/jql8fbk0/poster/b/w/z/medium-pwl-wall-poster-13-19-inches-matte-finish-deadpool-5-original-imaek7kgagwgzhdp.jpeg?q=90&crop=false",
+      "isActive": true
     },
     {
-      "id": 18,
+      "id": "18",
       "movieName": "The Nun",
       "language": "English",
       "genre": "Horror",
       "format": "2D",
-      "rating": 2.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 2,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A priest with a haunted past and a novice are sent by the Vatican to investigate the death of a young nun in Romania.",
-      "imageUrl": "https://resizing.flixster.com/a_0AGiLneCJMkGCkzqQnUVzy7pY=/fit-in/705x460/v2/https://resizing.flixster.com/HvIHuNQbszXMVbE98HIDQMsub-0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQ0NmRmYWZmLWM2ZTUtNDJhOC05YjllLWEzYjhiNjhjNDZmMy53ZWJw"
+      "imageUrl": "https://resizing.flixster.com/a_0AGiLneCJMkGCkzqQnUVzy7pY=/fit-in/705x460/v2/https://resizing.flixster.com/HvIHuNQbszXMVbE98HIDQMsub-0=/ems.cHJkLWVtcy1hc3NldHMvbW92aWVzLzQ0NmRmYWZmLWM2ZTUtNDJhOC05YjllLWEzYjhiNjhjNDZmMy53ZWJw",
+      "isActive": true
     },
     {
-      "id": 19,
+      "id": "19",
       "movieName": "Kirk",
       "language": "English",
       "genre": "Drama",
       "format": "2D",
-      "rating": 2.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 2,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A man struggles with his past and must confront dark truths in his life.",
-      "imageUrl": "https://i.pinimg.com/736x/aa/49/27/aa49277cd36b19de5888f46e8645dff6.jpg"
+      "imageUrl": "https://i.pinimg.com/736x/aa/49/27/aa49277cd36b19de5888f46e8645dff6.jpg",
+      "isActive": true
     },
     {
-      "id": 20,
+      "id": "20",
       "movieName": "The Room",
       "language": "English",
       "genre": "Drama",
       "format": "2D",
-      "rating": 1.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 1,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A man becomes deeply involved in a tumultuous love triangle, eventually spiraling into a troubled state of mind.",
-      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/The_room_2012_vg_cover.png"
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/en/c/cb/The_room_2012_vg_cover.png",
+      "isActive": true
     },
     {
-      "id": 21,
+      "id": "21",
       "movieName": "Battlefield Earth",
       "language": "English",
       "genre": "Sci-Fi",
       "format": "2D",
-      "rating": 1.0,
-      "showTimes": ["11:00AM", "2:00PM", "6:00PM", "9:00PM"],
+      "rating": 1,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
       "description": "A dark and corny sci-fi film where humanity fights an alien invasion with few survivors left.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvv2BMJSe5kJPFiHqo-oZ_i6keCcMMKSrbKQ&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvv2BMJSe5kJPFiHqo-oZ_i6keCcMMKSrbKQ&s",
+      "isActive": true
     },
     {
-      "id": 22,
+      "id": "22",
       "movieName": "Pushpa",
       "language": "Telugu",
       "genre": "Action/Thriller",
       "format": "2D",
       "rating": 4.7,
-      "showTimes": ["10:00AM", "1:30PM", "5:00PM", "9:00PM"],
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "9:00PM"
+      ],
       "description": "A high-octane action thriller following an undercover cop's mission to dismantle a drug cartel.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1B7HhiIHe9_Bg9UvQ2Jv3whoikbRUBywRQ&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTv1B7HhiIHe9_Bg9UvQ2Jv3whoikbRUBywRQ&s",
+      "isActive": true
     },
     {
-      "id": 23,
+      "id": "23",
       "movieName": "Interstellar Odyssey",
       "language": "English",
       "genre": "Sci-Fi/Adventure",
       "format": "3D",
       "rating": 4.8,
-      "showTimes": ["11:15AM", "2:45PM", "6:30PM", "10:15PM"],
+      "showTimes": [
+        "11:15AM",
+        "2:45PM",
+        "6:30PM",
+        "10:15PM"
+      ],
       "description": "A team of astronauts embarks on a perilous journey through a black hole to find a new home for humanity.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdPbPSFc_vYds000lPEzI8gcV3HhPZ16S4KbPNiRDyxXBME-BjAQzw-lHgmVWpch8ITo&usqp=CAU"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtdPbPSFc_vYds000lPEzI8gcV3HhPZ16S4KbPNiRDyxXBME-BjAQzw-lHgmVWpch8ITo&usqp=CAU",
+      "isActive": true
     },
     {
-      "id": 24,
+      "id": "24",
       "movieName": "War 2: The Last Stand",
       "language": "Hindi",
       "genre": "Action/Espionage",
       "format": "4DX",
       "rating": 4.5,
-      "showTimes": ["12:00PM", "3:15PM", "7:00PM", "10:30PM"],
+      "showTimes": [
+        "12:00PM",
+        "3:15PM",
+        "7:00PM",
+        "10:30PM"
+      ],
       "description": "An elite agent goes rogue, leading to an explosive showdown with his former mentor.",
-      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS4YkD_1401er2T8WxIVcPZjHWTt8SpBDw_Q&s"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS4YkD_1401er2T8WxIVcPZjHWTt8SpBDw_Q&s",
+      "isActive": true
     },
     {
-      "id": 25,
+      "id": "25",
       "movieName": "Kalki",
       "language": "Telugu",
       "genre": "Mythological Action",
       "format": "4D",
       "rating": 4.7,
-      "showTimes": ["10:00AM", "1:30PM", "5:00PM", "8:30PM"],
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "8:30PM"
+      ],
       "description": "An epic retelling of Kalki Avatar's battle against cosmic evil, with 4D effects enhancing divine weapons, flying chariots, and apocalyptic storms.",
-      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273dc8d9c8e19c16a560b5ca524"
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273dc8d9c8e19c16a560b5ca524",
+      "isActive": true
+    },
+    {
+      "id": "26",
+      "movieName": "RRR",
+      "language": "Telugu",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 5,
+      "showTimes": [
+        "11:00AM",
+        "2:00PM",
+        "6:00PM",
+        "9:00PM"
+      ],
+      "description": "RRR is an entirely fictitious story incorporating the lives of two real-life Indian revolutionaries.",
+      "imageUrl": "https://th.bing.com/th/id/OIP.WM5DP6inL8OhY-y1098GcQHaLG?rs=1&pid=ImgDetMain",
+      "isActive": true
+    },
+    {
+      "id": "27",
+      "movieName": "Hit 3",
+      "language": "Telugu",
+      "genre": "Thriller",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "10:00AM",
+        "1:30PM",
+        "5:00PM",
+        "8:30PM"
+      ],
+      "description": "HIT: The Third Case\\\" (also known as \\\"HIT 3\\\") is a Telugu crime thriller that follows Arjun Sarkaar, a top HIT officer, as he investigates a series of brutal murders",
+      "imageUrl": "https://www.filmibeat.com/img/popcorn/movie_posters/hit3-20230102145550-21504.jpg",
+      "isActive": true
+    },
+    {
+      "id": "28",
+      "movieName": "Salaar",
+      "language": "English",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "11:00 AM",
+        "2:00 PM",
+        "6:00 PM",
+        "9:00 PM"
+      ],
+      "description": "The fate of a violently contested kingdom hangs on the fraught bond between two friends-turned-foes in this saga of power, bloodshed and betrayal.",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/4762e1118501859.608a514e39fa0.png",
+      "isActive": true
+    },
+    {
+      "id": "29",
+      "movieName": "The Wolf of Wall Street",
+      "language": "English",
+      "genre": "Drama",
+      "format": "2D",
+      "rating": 4,
+      "showTimes": [
+        "11:00 AM",
+        "2:00 PM",
+        "6:00 PM",
+        "9:00 PM"
+      ],
+      "description": "\"The Wolf of Wall Street\" tells the story of Jordan Belfort, a penny stockbroker who rises to wealth through fraudulent schemes before his downfall.",
+      "imageUrl": "https://mir-s3-cdn-cf.behance.net/project_modules/1400/0bbc1f101643535.5f2345cf9772a.jpg",
+      "isActive": true
     }
   ]
 }

@@ -8,4 +8,5 @@ export interface Movie {
   showTimes: string[];
   description: string;
   imageUrl: string;
+  isActive: boolean; // New property to track active/inactive state
 }

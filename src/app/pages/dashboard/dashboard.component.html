@@ -2,6 +2,8 @@
       <app-carousal></app-carousal>
     </div> -->
 <div class="dash-container">
+
+
   <app-header class="app-header" (searchEvent)="onSearch($event)"></app-header>
   <div class="main-layout">
     <aside class="sidebar">
@@ -195,10 +197,10 @@
                 <app-movie-card [movie]="movie"></app-movie-card>
               </a>
             </ng-container>
+
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
+    <app-footer class="footer-container"></app-footer>
   </div>
-  <app-footer class="footer-container"></app-footer>
-</div>
