@@ -4,10 +4,10 @@ import { Observable } from 'rxjs';
 import { Booking } from '../_models/booking.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingService {
-  private baseUrl = 'http://localhost:5000/api/bookings'; // adjust as per your API
+  private baseUrl = 'http://localhost:5000/api/bookings';
 
   constructor(private http: HttpClient) {}
 
