@@ -203,6 +203,8 @@ import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 
 import { authGuard } from './guards/auth.guard';
 import { BookingHistoryComponent } from './pages/booking-history/booking-history.component';
+import { AdminUsersHComponent } from './pages/admin-users-h/admin-users-h.component';
+
 
 
 export const routes: Routes = [
@@ -257,6 +259,10 @@ export const routes: Routes = [
       {
         path: 'users',
         component: AdminUsersComponent, // Admin users page
+      },
+      {
+        path: 'users-booking-history',
+        component: AdminUsersHComponent
       },
       {
         path: '',

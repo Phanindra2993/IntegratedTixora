@@ -1,0 +1,18 @@
+<header class="app-header">
+    <div class="logo-container">
+      <img
+        class="logo"
+        routerLink="/admin"
+        src="https://i.ibb.co/nNj1rnDw/Screenshot-logo.png"
+        alt="logo-image"
+      />
+    </div>
+    <div class="search-bar-container">
+      <input
+        type="text"
+        class="search-bar"
+        placeholder="Search movies..."
+        (input)="onSearchInput($event)"
+      />
+    </div>
+  </header>

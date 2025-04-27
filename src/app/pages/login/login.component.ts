@@ -40,10 +40,8 @@ import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
 
 import { AuthService } from '../../../_services/auth.service';
-import { HeaderComponent } from "../../../components/header/header.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from '../../../components/footer/footer.component';
 
 @Component({
   selector: 'app-login',
@@ -59,7 +57,6 @@ import { FooterComponent } from '../../../components/footer/footer.component';
 
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [FormsModule, CommonModule, RouterLink, HeaderComponent, FooterComponent],
 })
 export class LoginComponent {
   formData = {

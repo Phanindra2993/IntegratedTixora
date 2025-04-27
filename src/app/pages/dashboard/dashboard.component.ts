@@ -175,8 +175,6 @@ import { BookTicketsComponent } from '../book-tickets/book-tickets.component';
     CommonModule,
     NzButtonModule,
     RouterLink,
-
-
     MovieCardComponent,
 
   ],
