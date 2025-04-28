@@ -13,7 +13,7 @@ import { RouterLink } from '@angular/router';
   styleUrls: ['./admin-users.component.scss'],
 })
 export class AdminUsersComponent implements OnInit {
-  users: any[] = []; // Array to store all registered users
+  users: any[] = []; 
 
   constructor(private authService: AuthService) {}
 

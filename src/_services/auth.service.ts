@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-
 export class AuthService {
   private usersKey = 'users';
   private loggedInUserKey = 'loggedInUser';
@@ -14,16 +13,18 @@ export class AuthService {
 
   private ensureAdminUser() {
     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    const adminExists = users.some((user: any) => user.Email === 'admin@tixora.com');
+    const adminExists = users.some(
+      (user: any) => user.Email === 'admin@tixora.com'
+    );
     if (!adminExists) {
       users.push({
         FirstName: 'Admin',
         LastName: '',
         Email: 'admin@tixora.com',
-        Password: 'admin123', // <-- Set your desired admin password here
+        Password: 'Admin@123',
         number: 'N/A',
         role: 'admin',
-        userId: new Date().getTime()
+        userId: new Date().getTime(),
       });
       localStorage.setItem(this.usersKey, JSON.stringify(users));
     }
@@ -111,4 +112,3 @@ export class AuthService {
     return !!this.getCurrentUser();
   }
 }
-

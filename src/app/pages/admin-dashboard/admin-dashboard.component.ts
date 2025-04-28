@@ -17,18 +17,17 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
   styleUrls: ['./admin-dashboard.component.scss'],
 })
 export class AdminDashboardComponent implements OnInit {
-  movies: any[] = []; // Array to store movies
-  isModalVisible = false; // Modal visibility
-  movieForm!: FormGroup; // Form group for the modal
-  selectedMovie: any = null; // Currently selected movie for editing
-  availableShowTimes = ['11:00AM', '2:00PM', '6:00PM', '9:00PM']; // Show times dropdown options
+  movies: any[] = []; 
+  isModalVisible = false; 
+  movieForm!: FormGroup; 
+  selectedMovie: any = null; 
+  availableShowTimes = ['11:00AM', '2:00PM', '6:00PM', '9:00PM']; 
 
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.fetchMovies(); // Fetch movies on component initialization
+    this.fetchMovies(); 
 
-    // Initialize the form
     this.movieForm = this.fb.group({
       movieName: ['', Validators.required],
       genre: ['', Validators.required],
@@ -41,11 +40,10 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Fetch movies from db.json
   fetchMovies(): void {
     this.http.get<any[]>('http://localhost:3000/movies').subscribe({
       next: (data) => {
-        this.movies = data; // Store the fetched movies in the array
+        this.movies = data; 
       },
       error: (err) => {
         console.error('Error fetching movies:', err);
@@ -53,30 +51,26 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Open the modal and populate the form with the selected movie's details
   openModal(movie: any): void {
     this.selectedMovie = movie;
-    this.movieForm.patchValue(movie); // Populate the form with movie details
+    this.movieForm.patchValue(movie); 
     this.isModalVisible = true;
   }
 
-  // Close the modal
   closeModal(): void {
     this.isModalVisible = false;
     this.selectedMovie = null;
   }
 
-  // Save the updated movie details
   saveMovie(): void {
     if (this.movieForm.valid) {
       const updatedMovie = { ...this.selectedMovie, ...this.movieForm.value };
 
-      // Send PUT request to update the movie
       this.http.put(`http://localhost:3000/movies/${updatedMovie.id}`, updatedMovie).subscribe({
         next: () => {
           alert('Movie updated successfully!');
-          this.fetchMovies(); // Refresh the movie list
-          this.closeModal(); // Close the modal
+          this.fetchMovies(); 
+          this.closeModal(); 
         },
         error: (err) => {
           console.error('Error updating movie:', err);
@@ -87,12 +81,11 @@ export class AdminDashboardComponent implements OnInit {
     }
   }
 
-  // Delete a movie
   deleteMovie(id: string): void {
     this.http.delete(`http://localhost:3000/movies/${id}`).subscribe({
       next: () => {
         alert('Movie deleted successfully!');
-        this.fetchMovies(); // Refresh the movie list
+        this.fetchMovies(); 
       },
       error: (err) => {
         console.error('Error deleting movie:', err);
@@ -100,14 +93,13 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-  // Toggle the active/inactive status of a movie
 toggleMovieStatus(movie: any): void {
   const updatedMovie = { ...movie, isActive: !movie.isActive };
 
   this.http.put(`http://localhost:3000/movies/${movie.id}`, updatedMovie).subscribe({
     next: () => {
       alert(`Movie is now ${updatedMovie.isActive ? 'Active' : 'Inactive'}!`);
-      this.fetchMovies(); // Refresh the movie list
+      this.fetchMovies(); 
     },
     error: (err) => {
       console.error('Error toggling movie status:', err);
