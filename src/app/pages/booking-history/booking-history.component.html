@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header class="app-header"></app-header>
 
 <div class="history-container">
   <h2>Booking History</h2>
@@ -12,6 +12,7 @@
         <th>Time</th>
         <th>Quantity</th>
         <th>Amount</th>
+        <th>QR Code</th>
       </tr>
     </thead>
     <tbody>
@@ -22,12 +23,20 @@
         <td>{{ booking.time }}</td>
         <td>{{ booking.quantity }}</td>
         <td>₹{{ booking.amount }}</td>
+        <td>
+          <img
+            [src]="generateQRCodeUrl(booking)"
+            alt="QR Code"
+            width="80"
+            height="80"
+          />
+        </td>
       </tr>
     </tbody>
   </table>
 
   <ng-template #noBookings>
-    <p>You have no bookings yet.</p>
+    <div><h1 class="no-bookings-text">You have no bookings yet...</h1></div>
   </ng-template>
 </div>
 

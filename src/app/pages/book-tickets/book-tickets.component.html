@@ -16,7 +16,12 @@
     <div class="show-timings-container">
       <select [(ngModel)]="selectedTime">
         <option value="" disabled selected>Select show time</option>
-        <option *ngFor="let time of movie.showTimes" [value]="time">
+        <option
+          *ngFor="let time of movie.showTimes"
+          [value]="time"
+          [disabled]="isPastShowTime(time)"
+          [value]="time"
+        >
           {{ time }}
         </option>
       </select>
@@ -53,6 +58,6 @@
     </button>
   </div>
   <button (click)="confirmBooking()">Select Seats</button>
-  <small *ngIf="showError">{{errorMessage}}</small>
+  <small *ngIf="showError">{{ errorMessage }}</small>
 </div>
 <app-footer></app-footer>

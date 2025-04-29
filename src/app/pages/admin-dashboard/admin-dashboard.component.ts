@@ -1,7 +1,12 @@
-
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
@@ -12,28 +17,42 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-admin-dashboard',
-  imports: [HeaderComponent, FormsModule, CommonModule, RouterLink, NzCardModule, NzButtonModule, NzModalModule, ReactiveFormsModule, FooterComponent],
+  imports: [
+    HeaderComponent,
+    FormsModule,
+    CommonModule,
+    RouterLink,
+    NzCardModule,
+    NzButtonModule,
+    NzModalModule,
+    ReactiveFormsModule,
+    FooterComponent,
+  ],
   templateUrl: './admin-dashboard.component.html',
   styleUrls: ['./admin-dashboard.component.scss'],
 })
 export class AdminDashboardComponent implements OnInit {
-  movies: any[] = []; 
-  isModalVisible = false; 
-  movieForm!: FormGroup; 
-  selectedMovie: any = null; 
-  availableShowTimes = ['11:00AM', '2:00PM', '6:00PM', '9:00PM']; 
+  movies: any[] = [];
+  isModalVisible = false;
+  movieForm!: FormGroup;
+  selectedMovie: any = null;
+  availableShowTimes = ['11:00AM', '2:00PM', '6:00PM', '9:00PM'];
+  searchQuery:string='';
 
   constructor(private http: HttpClient, private fb: FormBuilder) {}
 
   ngOnInit(): void {
-    this.fetchMovies(); 
+    this.fetchMovies();
 
     this.movieForm = this.fb.group({
       movieName: ['', Validators.required],
       genre: ['', Validators.required],
       language: ['', Validators.required],
       format: ['', Validators.required],
-      rating: [null, [Validators.required, Validators.min(0), Validators.max(5)]],
+      rating: [
+        null,
+        [Validators.required, Validators.min(0), Validators.max(5)],
+      ],
       showTimes: ['', Validators.required],
       description: ['', Validators.required],
       imageUrl: ['', Validators.required],
@@ -43,7 +62,7 @@ export class AdminDashboardComponent implements OnInit {
   fetchMovies(): void {
     this.http.get<any[]>('http://localhost:3000/movies').subscribe({
       next: (data) => {
-        this.movies = data; 
+        this.movies = data;
       },
       error: (err) => {
         console.error('Error fetching movies:', err);
@@ -53,7 +72,7 @@ export class AdminDashboardComponent implements OnInit {
 
   openModal(movie: any): void {
     this.selectedMovie = movie;
-    this.movieForm.patchValue(movie); 
+    this.movieForm.patchValue(movie);
     this.isModalVisible = true;
   }
 
@@ -66,16 +85,18 @@ export class AdminDashboardComponent implements OnInit {
     if (this.movieForm.valid) {
       const updatedMovie = { ...this.selectedMovie, ...this.movieForm.value };
 
-      this.http.put(`http://localhost:3000/movies/${updatedMovie.id}`, updatedMovie).subscribe({
-        next: () => {
-          alert('Movie updated successfully!');
-          this.fetchMovies(); 
-          this.closeModal(); 
-        },
-        error: (err) => {
-          console.error('Error updating movie:', err);
-        },
-      });
+      this.http
+        .put(`http://localhost:3000/movies/${updatedMovie.id}`, updatedMovie)
+        .subscribe({
+          next: () => {
+            alert('Movie updated successfully!');
+            this.fetchMovies();
+            this.closeModal();
+          },
+          error: (err) => {
+            console.error('Error updating movie:', err);
+          },
+        });
     } else {
       alert('Please fill out all required fields.');
     }
@@ -85,7 +106,7 @@ export class AdminDashboardComponent implements OnInit {
     this.http.delete(`http://localhost:3000/movies/${id}`).subscribe({
       next: () => {
         alert('Movie deleted successfully!');
-        this.fetchMovies(); 
+        this.fetchMovies();
       },
       error: (err) => {
         console.error('Error deleting movie:', err);
@@ -93,17 +114,34 @@ export class AdminDashboardComponent implements OnInit {
     });
   }
 
-toggleMovieStatus(movie: any): void {
-  const updatedMovie = { ...movie, isActive: !movie.isActive };
+  toggleMovieStatus(movie: any): void {
+    const updatedMovie = { ...movie, isActive: !movie.isActive };
 
-  this.http.put(`http://localhost:3000/movies/${movie.id}`, updatedMovie).subscribe({
-    next: () => {
-      alert(`Movie is now ${updatedMovie.isActive ? 'Active' : 'Inactive'}!`);
-      this.fetchMovies(); 
-    },
-    error: (err) => {
-      console.error('Error toggling movie status:', err);
-    },
-  });
-}
+    this.http
+      .put(`http://localhost:3000/movies/${movie.id}`, updatedMovie)
+      .subscribe({
+        next: () => {
+          alert(
+            `Movie is now ${updatedMovie.isActive ? 'Active' : 'Inactive'}!`
+          );
+          this.fetchMovies();
+        },
+        error: (err) => {
+          console.error('Error toggling movie status:', err);
+        },
+      });
+  }
+  onSearch(query: string) {
+    this.searchQuery = query;
+    if (!query) {
+      this.movies = this.movies;
+    } else {
+      const lowerQuery = query.toLowerCase();
+      this.movies = this.movies.filter(movie =>
+        movie.movieName.toLowerCase().includes(lowerQuery) ||
+        movie.genre.toLowerCase().includes(lowerQuery) ||
+        movie.language.toLowerCase().includes(lowerQuery)
+      );
+    }
+  }
 }

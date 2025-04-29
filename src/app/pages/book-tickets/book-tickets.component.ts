@@ -88,4 +88,27 @@ export class BookTicketsComponent {
 
     this.router.navigate(['/ticket'], { state: { ticket: ticketData } });
   }
+
+    isPastShowTime(showTime: string): boolean {
+    if (this.selectedDate !== new Date().toDateString()) {
+      return false; 
+    }
+  
+    const [timeStr, modifier] = showTime.split(/(AM|PM)/i);
+    const [hours, minutes] = timeStr.split(':').map(Number);
+  
+    let showHours = hours;
+    if (modifier.toUpperCase() === 'PM' && hours !== 12) {
+      showHours += 12;
+    } else if (modifier.toUpperCase() === 'AM' && hours === 12) {
+      showHours = 0;
+    }
+  
+    const now = new Date();
+    const showDateTime = new Date();
+    showDateTime.setHours(showHours, minutes, 0, 0);
+  
+    return showDateTime < now;
+  }
+  
 }

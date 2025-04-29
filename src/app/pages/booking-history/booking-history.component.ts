@@ -36,4 +36,11 @@ export class BookingHistoryComponent implements OnInit {
       this.bookings = allBookings.filter((b: any) => b.userId === user.userId);
     }
   }
+  generateQRCodeUrl(booking: any) {
+    const data = `BookingID: ${booking.bookingId}\nMovie: ${booking.movieTitle}\nQuantity: ${booking.quantity}`;
+    const qrAPI = `https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=${encodeURIComponent(
+      data
+    )}`;
+    return qrAPI;
+  }
 }

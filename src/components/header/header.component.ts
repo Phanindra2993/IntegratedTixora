@@ -41,7 +41,18 @@ export class HeaderComponent {
   onSearchReceived(query: string) {
     this.searchEvent.emit(query);
   }
+  navigateToDashboard() {
+    const loggedInUser = JSON.parse(
+      localStorage.getItem('loggedInUser') || '{}'
+    );
+
+    if (loggedInUser?.role === 'admin') {
+      this.router.navigate(['/admin/movies']);
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
 
   loggedInUser: any = null;
-  userProfileImage: string = 'assets/default-user.jpg'; // default fallback
+  userProfileImage: string = 'assets/default-user.jpg';
 }

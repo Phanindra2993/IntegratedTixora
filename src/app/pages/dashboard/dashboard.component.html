@@ -2,8 +2,6 @@
       <app-carousal></app-carousal>
     </div> -->
 <div class="dash-container">
-
-
   <app-header class="app-header" (searchEvent)="onSearch($event)"></app-header>
   <div class="main-layout">
     <aside class="sidebar">
@@ -63,42 +61,6 @@
       <section class="filter-group">
         <h3>Rating</h3>
         <div class="filter-options">
-          <!-- <button
-            class="filter-btn"
-            [ngClass]="{ active: selectedRating === 5 }"
-            (click)="onRatingFilter(5)"
-          >
-            5 ⭐
-          </button>
-          <button
-            class="filter-btn"
-            [ngClass]="{ active: selectedRating === 4 }"
-            (click)="onRatingFilter(4)"
-          >
-            4 ⭐
-          </button>
-          <button
-            class="filter-btn"
-            [ngClass]="{ active: selectedRating === 3 }"
-            (click)="onRatingFilter(3)"
-          >
-            3 ⭐
-          </button>
-          <button
-            class="filter-btn"
-            [ngClass]="{ active: selectedRating === 2 }"
-            (click)="onRatingFilter(2)"
-          >
-            2 ⭐
-          </button>
-          <button
-            class="filter-btn"
-            [ngClass]="{ active: selectedRating === 1 }"
-            (click)="onRatingFilter(1)"
-          >
-            1 ⭐
-          </button> -->
-
           <button
             class="filter-btn"
             [ngClass]="{ active: selectedRating.includes(5) }"
@@ -182,7 +144,10 @@
         <div *ngIf="isLoading" class="loading">Loading Movies...</div>
         <div *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</div>
 
-        <div *ngIf="!isLoading && !errorMessage && movies.length === 0">
+        <div
+          *ngIf="!isLoading && !errorMessage && movies.length === 0"
+          class="no-movies-text"
+        >
           No movies found.
         </div>
         <div *ngIf="!isLoading && !errorMessage && filteredMovies.length === 0">
@@ -197,10 +162,10 @@
                 <app-movie-card [movie]="movie"></app-movie-card>
               </a>
             </ng-container>
-
           </div>
         </div>
       </div>
     </div>
-    <app-footer class="footer-container"></app-footer>
   </div>
+  <app-footer class="footer-container"></app-footer>
+</div>

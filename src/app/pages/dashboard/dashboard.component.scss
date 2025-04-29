@@ -150,9 +150,12 @@
   justify-content: center;
   align-items: center;
 }
-.no-movies-text {
-  color: orange;
-  padding: 10px;
-  border: 2px dotted orange;
-}
 
+
+.no-movies-text {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
