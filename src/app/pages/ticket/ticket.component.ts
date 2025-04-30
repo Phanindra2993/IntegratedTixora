@@ -19,7 +19,8 @@ export class TicketComponent {
   constructor(private route: ActivatedRoute, private sanitizer: DomSanitizer,private router:Router) {}
 
   ngOnInit() {
-  
+   console.log(this.ticketData);
+   
     const nav =history.state;
     if(nav && nav.ticket){
       this.ticketData =nav.ticket;

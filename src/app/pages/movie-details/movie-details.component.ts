@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MovieDetailsComponent implements OnInit {
   movie!: Movie;
+ 
   relatedMovies: Movie[] = [];
 
   constructor(
@@ -50,14 +51,18 @@ export class MovieDetailsComponent implements OnInit {
   // }
 
   ngOnInit(): void {
+    console.log(this.movie);
+    
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
+      console.log('Fetching movie with ID:', id);
       if (id) {
         this.movieService.getAllMovies().subscribe((allRes) => {
           const allMovies = allRes.data; 
   
           this.movieService.getMovieById(+id).subscribe((res) => {
-            this.movie = res;
+            this.movie = res.data;
+            console.log('Movie response:', res); 
   
             this.relatedMovies = allMovies.filter(
               (m) => m.genre === this.movie.genre && m.movieId !== this.movie.movieId

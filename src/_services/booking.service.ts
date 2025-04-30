@@ -14,4 +14,16 @@ export class BookingService {
   getBookingsByUser(userId: number): Observable<Booking[]> {
     return this.http.get<Booking[]>(`${this.baseUrl}/user/${userId}`);
   }
+
+  bookTickets(payload: {
+    userId: number;
+    showtimeId: number;
+    movieId: number;
+    TicketCount: number;
+  }): Observable<{ success: boolean; message: string }> {
+    return this.http.post<{ success: boolean; message: string }>(
+      this.baseUrl,
+      payload
+    );
+  }
 }

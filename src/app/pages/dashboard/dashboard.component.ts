@@ -70,8 +70,8 @@ export class DashboardComponent implements OnInit {
         this.movies = response.data.filter((movie) => movie.isActive );
          console.log(this.movies);
         this.filteredMovies = this.movies;
-        console.log("fggfcgvhjbkhjk");
-        
+      //  console.log(this.filterMovies);
+               
         this.isLoading = false;
       },
       error: (err) => {
