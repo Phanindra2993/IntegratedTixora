@@ -61,7 +61,7 @@ export class BookTicketsComponent {
 
     this.showError = false;
     this.errorMessage = '';
-    this.router.navigate(['/ticket', this.movie.id]);
+    this.router.navigate(['/ticket', this.movie.movieId]);
 
     const loggedInUser = JSON.parse(
       localStorage.getItem('loggedInUser') || '{}'
@@ -69,7 +69,7 @@ export class BookTicketsComponent {
    
     const ticketData = {
       userId: loggedInUser.userId, 
-      movieTitle: this.movie.movieName,
+      movieTitle: this.movie.title,
       movieImage: this.movie.imageUrl,
       language: this.movie.language,
       format: this.movie.format,

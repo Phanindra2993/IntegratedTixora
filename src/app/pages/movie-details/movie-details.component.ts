@@ -28,24 +28,45 @@ export class MovieDetailsComponent implements OnInit {
     private movieService: MoviesService
   ) {}
 
+  // ngOnInit(): void {
+  //   this.route.paramMap.subscribe((params) => {
+  //     const id = params.get('id');
+  //     if (id) {
+  //       this.movieService.getAllMovies().subscribe(() => {
+  //         this.movieService.getMovieById(+id).subscribe((res) => {
+  //           this.movie = res;
+
+  //           this.relatedMovies = this.movieService
+  //             .getCachedMovies()
+  //             .filter(
+  //               (m) => m.genre === this.movie.genre && m.id !== this.movie.id
+  //             );
+
+  //           // console.log('Related Movies:', this.relatedMovies);
+  //         });
+  //       });
+  //     }
+  //   });
+  // }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
       if (id) {
-        this.movieService.getAllMovies().subscribe(() => {
+        this.movieService.getAllMovies().subscribe((allRes) => {
+          const allMovies = allRes.data; 
+  
           this.movieService.getMovieById(+id).subscribe((res) => {
             this.movie = res;
-
-            this.relatedMovies = this.movieService
-              .getCachedMovies()
-              .filter(
-                (m) => m.genre === this.movie.genre && m.id !== this.movie.id
-              );
-
-            // console.log('Related Movies:', this.relatedMovies);
+  
+            this.relatedMovies = allMovies.filter(
+              (m) => m.genre === this.movie.genre && m.movieId !== this.movie.movieId
+            );
           });
         });
       }
     });
   }
+  
+  
 }

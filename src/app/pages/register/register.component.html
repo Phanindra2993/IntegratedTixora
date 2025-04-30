@@ -4,14 +4,14 @@
   <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
     <input
       type="text"
-      placeholder="FirstName"
-      name="FirstName"
-      [(ngModel)]="formData.FirstName"
-      #FirstName="ngModel"
+      placeholder="firstName"
+      name="firstName"
+      [(ngModel)]="formData.firstName"
+      #firstName="ngModel"
       required
     />
-    <div *ngIf="(registerForm.submitted || FirstName.touched) && FirstName.invalid">
-      <small *ngIf="FirstName.errors?.['required']"
+    <div *ngIf="(registerForm.submitted || firstName.touched) && firstName.invalid">
+      <small *ngIf="firstName.errors?.['required']"
         >*First Name is required</small
       >
     </div>
@@ -19,63 +19,63 @@
     <input  
       type="text"
       placeholder="LastName"
-      name="LastName"
-      [(ngModel)]="formData.LastName"
-      #LastName="ngModel"
+      name="lastName"
+      [(ngModel)]="formData.lastName"
+      #lastName="ngModel"
       required
     />
-    <div *ngIf="(registerForm.submitted || LastName.touched) && LastName.invalid">
-      <small *ngIf="LastName.errors?.['required']">*Last Name is required</small>
+    <div *ngIf="(registerForm.submitted || lastName.touched) && lastName.invalid">
+      <small *ngIf="lastName.errors?.['required']">*Last Name is required</small>
     </div>
 
     <input
       type="email"
-      placeholder="Email"
-      name="Email"
-      [(ngModel)]="formData.Email"
-      #Email="ngModel"
+      placeholder="email"
+      name="email"
+      [(ngModel)]="formData.email"
+      #email="ngModel"
       required
       email
     />
-    <div *ngIf="(registerForm.submitted || Email.touched) && Email.invalid">
-      <small *ngIf="Email.errors?.['required']">*Email is required</small>
-      <small *ngIf="Email.errors?.['email']">*Please enter a valid Email</small>
+    <div *ngIf="(registerForm.submitted || email.touched) && email.invalid">
+      <small *ngIf="email.errors?.['required']">*email is required</small>
+      <small *ngIf="email.errors?.['email']">*Please enter a valid email</small>
     </div>
 
     <input
       type="text"
-      placeholder="Enter your number"
-      name="number"
-      #number="ngModel"
-      [(ngModel)]="formData.number"
+      placeholder="Enter your phone"
+      name="phone"
+      #phone="ngModel"
+      [(ngModel)]="formData.phone"
       required
       pattern="^[0-9]{10}$"
     />
-    <div *ngIf="(registerForm.submitted || number.touched) && number.invalid">
-      <small *ngIf="number.errors?.['required']"
-        >*Mobile number is required</small
+    <div *ngIf="(registerForm.submitted || phone.touched) && phone.invalid">
+      <small *ngIf="phone.errors?.['required']"
+        >*Mobile phone is required</small
       >
-      <small *ngIf="number.errors?.['pattern']"
-        >*Enter a valid 10-digit number</small
+      <small *ngIf="phone.errors?.['pattern']"
+        >*Enter a valid 10-digit phone</small
       >
     </div>
 
     <input
       type="password"
-      placeholder="Password"
-      name="Password"
-      [(ngModel)]="formData.Password"
-      #Password="ngModel"
+      placeholder="password"
+      name="password"
+      [(ngModel)]="formData.password"
+      #password="ngModel"
       required
       minlength="6"
       pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$"
     />
-    <div *ngIf="(registerForm.submitted || Password.touched) && Password.invalid">
-      <small *ngIf="Password.errors?.['required']">*Password is required</small>
-      <small *ngIf="Password.errors?.['minlength']"
-        >*Password must be at least 6 characters</small>
-        <small *ngIf="Password.errors?.['pattern']">
-          Password must have at least 1 uppercase letter, 1 number, and 1 symbol.
+    <div *ngIf="(registerForm.submitted || password.touched) && password.invalid">
+      <small *ngIf="password.errors?.['required']">*password is required</small>
+      <small *ngIf="password.errors?.['minlength']"
+        >*password must be at least 6 characters</small>
+        <small *ngIf="password.errors?.['pattern']">
+          password must have at least 1 uppercase letter, 1 number, and 1 symbol.
         </small>
        
     </div>

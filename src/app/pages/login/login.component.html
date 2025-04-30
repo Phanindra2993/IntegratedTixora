@@ -6,28 +6,28 @@
       type="email"
       placeholder="Email"
       name="Email"
-      [(ngModel)]="formData.Email"
-      #Email="ngModel"
+      [(ngModel)]="formData.email"
+      #email="ngModel"
       required
       email
     />
-    <div *ngIf="(loginForm.submitted || Email.touched) && Email.invalid">
-      <small *ngIf="Email.errors?.['required']">*Email is required</small>
-      <small *ngIf="Email.errors?.['email']">*Please enter a valid Email</small>
+    <div *ngIf="(loginForm.submitted || email.touched) && email.invalid">
+      <small *ngIf="email.errors?.['required']">*Email is required</small>
+      <small *ngIf="email.errors?.['email']">*Please enter a valid Email</small>
     </div>
 
     <input
       type="password"
       placeholder="Password"
       name="Password"
-      [(ngModel)]="formData.Password"
-      #Password="ngModel"
+      [(ngModel)]="formData.password"
+      #password="ngModel"
       required
       minlength="6"
     />
-    <div *ngIf="(loginForm.submitted || Password.touched) && Password.invalid">
-      <small *ngIf="Password.errors?.['required']">*Password is required</small>
-      <small *ngIf="Password.errors?.['minlength']"
+    <div *ngIf="(loginForm.submitted || password.touched) && password.invalid">
+      <small *ngIf="password.errors?.['required']">*Password is required</small>
+      <small *ngIf="password.errors?.['minlength']"
         >*Password must be at least 6 characters</small
       >
     </div>

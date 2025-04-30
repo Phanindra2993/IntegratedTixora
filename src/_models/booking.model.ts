@@ -8,3 +8,4 @@ export interface Booking {
     totalAmount: number;
   }
   
+  

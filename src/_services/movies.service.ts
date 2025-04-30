@@ -8,23 +8,48 @@ import { Movie } from '../_models/movies.model';
 })
 export class MoviesService {
   private cachedMovies: Movie[] = [];
-  
 
-  private url = 'http://localhost:3000/movies';
+  private url = 'https://localhost:7063/api/movies';
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.url);
-  }
+  // getMovies(): Observable<Movie[]> {
+  //   return this.http.get<Movie[]>(this.url);
+  // }
+
   getMovieById(id: number): Observable<Movie> {
-    return this.http.get<Movie>(`http://localhost:3000/movies/${id}`);
+    return this.http.get<Movie>(`https://localhost:7063/api/movies/${id}`);
   }
 
-  getAllMovies(): Observable<Movie[]> {
+  // getAllMovies(): Observable<Movie[]> {
+  //   return this.http
+  //     .get<Movie[]>('https://localhost:7063/api/movies')
+  //     .pipe(tap((movies) => (this.cachedMovies = movies)));
+  // }
+
+  // getAllMovies(): Observable<{
+  //   success: boolean;
+  //   data: Movie[];
+  //   message: string;
+  // }> {
+  //   return this.http.get<{ success: boolean; data: Movie[]; message: string }>(
+  //     'https://localhost:7063/api/movies'
+  //   );
+  // }
+
+
+  getAllMovies(): Observable<{ success: boolean; data: Movie[]; message: string }> {
     return this.http
-      .get<Movie[]>('http://localhost:3000/movies')
-      .pipe(tap((movies) => (this.cachedMovies = movies)));
+      .get<{ success: boolean; data: Movie[]; message: string }>(
+        'https://localhost:7063/api/movies'
+      )
+      .pipe(
+        tap((res) => {
+          this.cachedMovies = res.data; 
+        })
+      );
   }
+  
+  
   getCachedMovies(): Movie[] {
     return this.cachedMovies;
   }

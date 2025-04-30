@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { UsersService } from './users.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -7,24 +9,24 @@ export class AuthService {
   private usersKey = 'users';
   private loggedInUserKey = 'loggedInUser';
 
-  constructor() {
+  constructor(private userService:UsersService) {
     this.ensureAdminUser();
   }
 
   private ensureAdminUser() {
     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
     const adminExists = users.some(
-      (user: any) => user.Email === 'admin@tixora.com'
+      (user: any) => user.email === 'admin@tixora.com'
     );
     if (!adminExists) {
       users.push({
-        FirstName: 'Admin',
-        LastName: '',
-        Email: 'admin@tixora.com',
-        Password: 'Admin@123',
-        number: 'N/A',
-        role: 'admin',
-        userId: new Date().getTime(),
+        firstName: 'Admin',
+        lastName: '',
+        email: 'admin@tixora.com',
+        password: 'Admin@123',
+        phone: 'N/A',
+        // role: 'admin',
+        // userId: new Date().getTime(),
       });
       localStorage.setItem(this.usersKey, JSON.stringify(users));
     }
@@ -32,37 +34,62 @@ export class AuthService {
 
   registerUser(userData: any): boolean {
     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    const userExists = users.some((user: any) => user.Email === userData.Email);
+    const userExists = users.some((user: any) => user.email === userData.email);
 
     if (userExists) return false;
     const newUser = {
-      FirstName: userData.FirstName || 'N/A',
-      LastName: userData.LastName || 'N/A',
-      Email: userData.Email,
-      Password: userData.Password,
-      number: userData.number || 'N/A',
-      role: userData.role || 'user',
-      userId: new Date().getTime(),
+      firstName: userData.firstName || 'N/A',
+      lastName: userData.lastName || 'N/A',
+      email: userData.email,
+      phone: userData.phone || 'N/A',
+      password: userData.password,
+     
+      // role: userData.role || 'user',
+      // userId: new Date().getTime(),
     };
+    const d={...newUser}
+
+    
+
 
     users.push(newUser);
     localStorage.setItem(this.usersKey, JSON.stringify(users));
+    // this.userService.addUsers(d).subscribe({
+    //   next:()=>{console.log("Successfull");
+    //   },
+    //   error:(error)=>{console.log("Error Occured",error);
+    //   }
+    // })
+    this.userService.addUsers(newUser).subscribe({
+      next: () => { console.log("Success"); },
+      error: (error) => {
+        console.error("Error while registering:", error);
+        alert("Failed to register: " + (error.error?.message || 'Unknown error'));
+      }
+    });
     return true;
   }
 
-  login(email: string, password: string): any {
-    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    const matchedUser = users.find(
-      (user: any) => user.Email === email && user.Password === password
-    );
+  // login(email: string, password: string): any {
+  //   const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
 
-    if (matchedUser) {
-      localStorage.setItem(this.loggedInUserKey, JSON.stringify(matchedUser));
-      return matchedUser;
-    }
+  //   const matchedUser = users.find(
+  //     (user: any) => user.email === email && user.password === password
+  //   );
 
-    return null;
+  //   if (matchedUser) {
+  //     localStorage.setItem(this.loggedInUserKey, JSON.stringify(matchedUser));
+  //     this.userService.addUsers(matchedUser)
+  //     return matchedUser;
+  //   }
+
+  //   return null;
+  // }
+  login(email: string, password: string): Observable<any> {
+    const credentials = { email, password };
+    return this.userService.login(credentials);
   }
+  
 
   logout(): void {
     localStorage.removeItem(this.loggedInUserKey);

@@ -15,11 +15,11 @@ import { AuthService } from '../../../_services/auth.service';
 })
 export class RegisterComponent {
   formData = {
-    FirstName: '',
-    LastName: '',
-    Email: '',
-    number: '',
-    Password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    password: '',
   };
 
   constructor(private router: Router,private authService:AuthService) {}
@@ -28,6 +28,7 @@ export class RegisterComponent {
     const success = this.authService.registerUser(this.formData); 
     if(success){
       alert("Registration Successfull");
+      console.log(this.formData)
       this.router.navigate(['/login']);
     } else {
       alert("User already exists with this email!");

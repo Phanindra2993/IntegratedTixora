@@ -7,8 +7,7 @@ import { CommonModule } from '@angular/common';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-
-
+import { MoviesService } from '../../../_services/movies.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,7 +19,6 @@ import { HttpClient } from '@angular/common/http';
     NzButtonModule,
     RouterLink,
     MovieCardComponent,
-
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
@@ -32,47 +30,63 @@ export class DashboardComponent implements OnInit {
   errorMessage = '';
   inputValue: string = '';
 
-
   selectedLanguage: string[] = [];
   selectedGenre: string[] = [];
   selectedRating: number[] = [];
   selectedFormat: string[] = [];
 
-
-  constructor(private http: HttpClient) {}
+  constructor(private moviesService: MoviesService) {}
 
   toggleSelection<T>(selectedArray: T[], value: T): T[] {
     return selectedArray.includes(value)
-      ? selectedArray.filter((v) => v !== value) 
-      : [...selectedArray, value]; 
+      ? selectedArray.filter((v) => v !== value)
+      : [...selectedArray, value];
   }
 
   ngOnInit(): void {
-    
     this.isLoading = true;
-    this.fetchMovies(); 
+    this.fetchMovies();
   }
 
   // Fetch movies from db.json and filter only active movies
+  // fetchMovies(): void {
+  //   this.http.get<Movie[]>('http://localhost:3000/movies').subscribe({
+  //     next: (data) => {
+  //       this.movies = data.filter((movie) => movie.isActive);
+  //       this.filteredMovies = this.movies;
+  //       this.isLoading = false;
+  //     },
+  //     error: (err) => {
+  //       console.error('Error fetching movies:', err);
+  //       this.errorMessage = 'Error while fetching movies';
+  //       this.isLoading = false;
+  //     },
+  //   });
+  // }
+
   fetchMovies(): void {
-    this.http.get<Movie[]>('http://localhost:3000/movies').subscribe({
-      next: (data) => {
-        this.movies = data.filter((movie) => movie.isActive);
-        this.filteredMovies = this.movies; 
+    this.moviesService.getAllMovies().subscribe({
+      next: (response) => {
+        this.movies = response.data.filter((movie) => movie.isActive );
+         console.log(this.movies);
+        this.filteredMovies = this.movies;
+        console.log("fggfcgvhjbkhjk");
+        
         this.isLoading = false;
       },
       error: (err) => {
-        console.error('Error fetching movies:', err);
+        console.error('Error fetching movies from backend:', err);
         this.errorMessage = 'Error while fetching movies';
         this.isLoading = false;
       },
     });
   }
+  
 
   onSearch(query: string) {
     const lower = query.toLowerCase();
     this.filteredMovies = this.movies.filter((movie) =>
-      movie.movieName.toLowerCase().includes(lower)
+      movie.title.toLowerCase().includes(lower)
     );
     this.inputValue = '';
   }

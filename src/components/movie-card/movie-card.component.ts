@@ -12,4 +12,6 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 })
 export class MovieCardComponent {
   @Input() movie: Movie | undefined;
+  
+  
 }

@@ -58,7 +58,7 @@
           </button>
         </div>
       </section>
-      <section class="filter-group">
+      <!-- <section class="filter-group">
         <h3>Rating</h3>
         <div class="filter-options">
           <button
@@ -97,7 +97,7 @@
             1 ⭐
           </button>
         </div>
-      </section>
+      </section> -->
 
       <section class="filter-group">
         <h3>Format</h3>
@@ -158,7 +158,7 @@
         <div *ngIf="!isLoading && !errorMessage">
           <div class="movie-list">
             <ng-container *ngFor="let movie of filteredMovies">
-              <a class="card" [routerLink]="['/movie-details', movie.id]">
+              <a class="card" [routerLink]="['/movie-details', movie.movieId]">
                 <app-movie-card [movie]="movie"></app-movie-card>
               </a>
             </ng-container>
