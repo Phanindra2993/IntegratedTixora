@@ -1,0 +1,81 @@
+
+
+
+<app-header class="app-header"></app-header>
+
+<div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h3>Admin Dashboard</h3>
+        <nav>
+          <ul>
+            <li><a routerLink="/admin/movies" routerLinkActive="active">Movies</a></li>
+            <li><a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a></li>
+            <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
+            <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Booking History</a></li>
+          </ul>
+        </nav>
+      </aside>
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <h1>User Booking History</h1>
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <input type="text" [(ngModel)]="searchTerm" 
+               placeholder="Search by user, movie, status or booking ID">
+      </div>
+
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading bookings...</p>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <!-- No Bookings Found -->
+      <div *ngIf="!isLoading && bookings.length === 0" class="no-bookings">
+        No bookings found.
+      </div>
+
+      <!-- Bookings Table -->
+      <div *ngIf="!isLoading && bookings.length > 0" class="bookings-table-container">
+        <table class="bookings-table">
+          <thead>
+            <tr>
+              <th>Booking ID</th>
+              <th>User</th>
+              <th>Movie</th>
+              <th>Show Date</th>
+              <th>Show Time</th>
+              <th>Tickets</th>
+              <th>Amount</th>
+              <th>Booking Date</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let booking of filteredBookings">
+              <td>{{ booking.bookingId }}</td>
+              <td>{{ booking.userName }}</td>
+              <td>{{ booking.movieTitle }}</td>
+              <td>{{ booking.formattedShowDate }}</td>
+              <td>{{ booking.formattedShowTime }}</td>
+              <td>{{ booking.ticketCount }}</td>
+              <td>${{ booking.totalAmount }}</td>
+              <td>{{ booking.formattedBookingDate }}</td>
+              <td [class]="'status-' + booking.status.toLowerCase()">
+                {{ booking.status }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+<app-footer></app-footer>

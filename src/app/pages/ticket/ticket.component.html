@@ -1,4 +1,4 @@
-<app-header class="app-header"></app-header>
+<!-- <app-header class="app-header"></app-header>
 
 <div class="ticket-container">
   <div class="ticket">
@@ -31,4 +31,43 @@
   </div>
 </div>
 
+<app-footer></app-footer> -->
+
+<app-header class="app-header"></app-header>
+
+<div class="ticket-container">
+  <div class="ticket">
+    <div class="ticket-left">
+      <img [src]="ticketData.movieImage" alt="Movie Poster" />
+    </div>
+
+    <div class="ticket-right">
+      <h2>{{ ticketData.movieTitle }}</h2>
+
+      <div class="details">
+        <p><strong>Language:</strong> {{ ticketData.language }}</p>
+        <p><strong>Format:</strong> {{ ticketData.format }}</p>
+        <p>
+          <strong>Date/Time:</strong> {{ ticketData.showDate }} at
+          {{ ticketData.showTime }}
+        </p>
+      </div>
+
+      <div class="qr-code">
+        <img [src]="qrCodeUrl" alt="QR Code" />
+      </div>
+
+      <div class="booking-info">
+        <p><strong>Booking ID:</strong> {{ ticketData.bookingId }}</p>
+        <p><strong>Quantity:</strong> {{ ticketData.quantity }}</p>
+      </div>
+
+      <div class="amount">
+        <p><strong>Total Amount:</strong> ₹{{ ticketData.totalAmount }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <app-footer></app-footer>
+

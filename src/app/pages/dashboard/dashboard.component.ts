@@ -129,11 +129,11 @@ export class DashboardComponent implements OnInit {
         (this.selectedGenre.length
           ? this.selectedGenre.includes(movie.genre)
           : true) &&
-        (this.selectedRating.length
-          ? this.selectedRating.some((r) =>
-              this.ratingFilterCheck(movie.rating, r)
-            )
-          : true) &&
+        // (this.selectedRating.length
+        //   ? this.selectedRating.some((r) =>
+        //       this.ratingFilterCheck(movie.rating, r)
+        //     )
+        //   : true) &&
         (this.selectedFormat.length
           ? this.selectedFormat.includes(movie.format)
           : true)

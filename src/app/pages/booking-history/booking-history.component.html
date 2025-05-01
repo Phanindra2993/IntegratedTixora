@@ -3,7 +3,17 @@
 <div class="history-container">
   <h2>Booking History</h2>
 
-  <table *ngIf="bookings.length > 0; else noBookings">
+  <div *ngIf="isLoading" class="loading-spinner">
+    <div class="spinner"></div>
+    <p>Loading your bookings...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-message">
+    <p>{{ errorMessage }}</p>
+    <button (click)="loadBookings()">Retry</button>
+  </div>
+
+  <table *ngIf="!isLoading && bookings.length > 0; else noBookings">
     <thead>
       <tr>
         <th>Booking ID</th>
@@ -27,8 +37,7 @@
           <img
             [src]="generateQRCodeUrl(booking)"
             alt="QR Code"
-            width="80"
-            height="80"
+            class="qr-code"
           />
         </td>
       </tr>
@@ -36,7 +45,10 @@
   </table>
 
   <ng-template #noBookings>
-    <div><h1 class="no-bookings-text">You have no bookings yet...</h1></div>
+    <div *ngIf="!isLoading && !errorMessage" class="no-bookings">
+      <h3 class="no-bookings-text">You have no bookings yet...</h3>
+      <a routerLink="/movies" class="browse-movies">Browse Movies</a>
+    </div>
   </ng-template>
 </div>
 

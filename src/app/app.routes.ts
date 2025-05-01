@@ -16,7 +16,10 @@ import { AdminUsersComponent } from './pages/admin-users/admin-users.component';
 
 import { authGuard } from './guards/auth.guard';
 import { BookingHistoryComponent } from './pages/booking-history/booking-history.component';
-import { AdminUsersHComponent } from './pages/admin-users-history/admin-users-h.component';
+
+import { AdminusershistoryComponent } from './pages/adminusershistory/adminusershistory.component';
+// import { AdminUsersHistoryComponent } from './pages/admin-users-history/admin-users-history.component';
+
 
 
 
@@ -71,9 +74,13 @@ export const routes: Routes = [
         path: 'users',
         component: AdminUsersComponent,
       },
+      // {
+      //   path: 'admin-booking-history',
+      //   component: AdminUsersHistoryComponent
+      // },
       {
-        path: 'users-booking-history',
-        component: AdminUsersHComponent
+        path:'users-booking-history',
+        component:AdminusershistoryComponent
       },
       {
         path: '',

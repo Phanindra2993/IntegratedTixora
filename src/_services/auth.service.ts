@@ -1,102 +1,189 @@
+// import { Injectable } from '@angular/core';
+// import { UsersService } from './users.service';
+// import { Observable } from 'rxjs';
+
+// @Injectable({
+//   providedIn: 'root',
+// })
+// export class AuthService {
+//   private usersKey = 'users';
+//   private loggedInUserKey = 'loggedInUser';
+
+//   constructor(private userService:UsersService) {
+//     this.ensureAdminUser();
+//   }
+
+//   private ensureAdminUser() {
+//     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+//     const adminExists = users.some(
+//       (user: any) => user.email === 'admin@tixora.com'
+//     );
+//     if (!adminExists) {
+//       users.push({
+//         firstName: 'Admin',
+//         lastName: '',
+//         email: 'admin@tixora.com',
+//         password: 'Admin@123',
+//         phone: 'N/A',
+//         // role: 'admin',
+//         // userId: new Date().getTime(),
+//       });
+//       localStorage.setItem(this.usersKey, JSON.stringify(users));
+//     }
+//   }
+
+//   registerUser(userData: any): boolean {
+//     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+//     const userExists = users.some((user: any) => user.email === userData.email);
+
+//     if (userExists) return false;
+//     const newUser = {
+//       firstName: userData.firstName || 'N/A',
+//       lastName: userData.lastName || 'N/A',
+//       email: userData.email,
+//       phone: userData.phone || 'N/A',
+//       password: userData.password,
+     
+//       // role: userData.role || 'user',
+//       // userId: new Date().getTime(),
+//     };
+//     const d={...newUser}
+
+    
+
+
+//     users.push(newUser);
+//     localStorage.setItem(this.usersKey, JSON.stringify(users));
+//     // this.userService.addUsers(d).subscribe({
+//     //   next:()=>{console.log("Successfull");
+//     //   },
+//     //   error:(error)=>{console.log("Error Occured",error);
+//     //   }
+//     // })
+//     this.userService.addUsers(newUser).subscribe({
+//       next: () => { console.log("Success"); },
+//       error: (error) => {
+//         console.error("Error while registering:", error);
+//         alert("Failed to register: " + (error.error?.message || 'Unknown error'));
+//       }
+//     });
+//     return true;
+//   }
+
+//   // login(email: string, password: string): any {
+//   //   const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+
+//   //   const matchedUser = users.find(
+//   //     (user: any) => user.email === email && user.password === password
+//   //   );
+
+//   //   if (matchedUser) {
+//   //     localStorage.setItem(this.loggedInUserKey, JSON.stringify(matchedUser));
+//   //     this.userService.addUsers(matchedUser)
+//   //     return matchedUser;
+//   //   }
+
+//   //   return null;
+//   // }
+//   login(email: string, password: string): Observable<any> {
+//     const credentials = { email, password };
+//     return this.userService.login(credentials);
+//   }
+  
+
+//   logout(): void {
+//     localStorage.removeItem(this.loggedInUserKey);
+//   }
+
+//   getCurrentUser(): any {
+//     return JSON.parse(localStorage.getItem(this.loggedInUserKey) || 'null');
+//   }
+
+//   getCurrentUserRole(): string | null {
+//     const user = this.getCurrentUser();
+//     return user ? user.role : null;
+//   }
+
+//   getAllUsers(): any[] {
+//     const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
+//     return users.map((user: any) => {
+//       if (user.Email === 'admin@tixora.com') {
+//         return {
+//           FirstName: 'Admin',
+//           LastName: '',
+//           Email: user.Email,
+//           Password: user.Password,
+//           role: user.role || 'admin',
+//         };
+//       } else if (user.Email === 'user@example.com') {
+//         return {
+//           FirstName: 'User',
+//           LastName: '',
+//           Email: user.Email,
+//           Password: user.Password,
+//           role: user.role || 'user',
+//         };
+//       } else {
+//         return {
+//           FirstName: user.FirstName || 'N/A',
+//           LastName: user.LastName || 'N/A',
+//           Email: user.Email,
+//           Password: user.Password,
+//           role: user.role || 'user',
+//         };
+//       }
+//     });
+//   }
+
+//   isLoggedIn(): boolean {
+//     return !!this.getCurrentUser();
+//   }
+// }
+
+
 import { Injectable } from '@angular/core';
-import { UsersService } from './users.service';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private usersKey = 'users';
-  private loggedInUserKey = 'loggedInUser';
+  private readonly apiUrl = 'https://localhost:7063/api/user'; // Update port if needed
+  
 
-  constructor(private userService:UsersService) {
-    this.ensureAdminUser();
-  }
+  constructor(private http: HttpClient) {}
 
-  private ensureAdminUser() {
-    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    const adminExists = users.some(
-      (user: any) => user.email === 'admin@tixora.com'
-    );
-    if (!adminExists) {
-      users.push({
-        firstName: 'Admin',
-        lastName: '',
-        email: 'admin@tixora.com',
-        password: 'Admin@123',
-        phone: 'N/A',
-        // role: 'admin',
-        // userId: new Date().getTime(),
-      });
-      localStorage.setItem(this.usersKey, JSON.stringify(users));
-    }
-  }
-
-  registerUser(userData: any): boolean {
-    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    const userExists = users.some((user: any) => user.email === userData.email);
-
-    if (userExists) return false;
-    const newUser = {
+  // Register a new user
+  registerUser(userData: any): Observable<any> {
+    const payload = {
       firstName: userData.firstName || 'N/A',
       lastName: userData.lastName || 'N/A',
       email: userData.email,
-      phone: userData.phone || 'N/A',
       password: userData.password,
-     
-      // role: userData.role || 'user',
-      // userId: new Date().getTime(),
+      phone: userData.phone || 'N/A',
     };
-    const d={...newUser}
-
-    
-
-
-    users.push(newUser);
-    localStorage.setItem(this.usersKey, JSON.stringify(users));
-    // this.userService.addUsers(d).subscribe({
-    //   next:()=>{console.log("Successfull");
-    //   },
-    //   error:(error)=>{console.log("Error Occured",error);
-    //   }
-    // })
-    this.userService.addUsers(newUser).subscribe({
-      next: () => { console.log("Success"); },
-      error: (error) => {
-        console.error("Error while registering:", error);
-        alert("Failed to register: " + (error.error?.message || 'Unknown error'));
-      }
-    });
-    return true;
+    return this.http.post(`${this.apiUrl}/register`, payload);
   }
 
-  // login(email: string, password: string): any {
-  //   const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-
-  //   const matchedUser = users.find(
-  //     (user: any) => user.email === email && user.password === password
-  //   );
-
-  //   if (matchedUser) {
-  //     localStorage.setItem(this.loggedInUserKey, JSON.stringify(matchedUser));
-  //     this.userService.addUsers(matchedUser)
-  //     return matchedUser;
-  //   }
-
-  //   return null;
-  // }
+  // Login a user
   login(email: string, password: string): Observable<any> {
     const credentials = { email, password };
-    return this.userService.login(credentials);
+    return this.http.post(`${this.apiUrl}/login`, credentials);
   }
-  
 
-  logout(): void {
-    localStorage.removeItem(this.loggedInUserKey);
+  // Fetch all users from backend
+  getAllUsers(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  // Optional: Store current user locally after login
+  setLoggedInUser(user: any): void {
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
   }
 
   getCurrentUser(): any {
-    return JSON.parse(localStorage.getItem(this.loggedInUserKey) || 'null');
+    return JSON.parse(localStorage.getItem('loggedInUser') || 'null');
   }
 
   getCurrentUserRole(): string | null {
@@ -104,35 +191,8 @@ export class AuthService {
     return user ? user.role : null;
   }
 
-  getAllUsers(): any[] {
-    const users = JSON.parse(localStorage.getItem(this.usersKey) || '[]');
-    return users.map((user: any) => {
-      if (user.Email === 'admin@tixora.com') {
-        return {
-          FirstName: 'Admin',
-          LastName: '',
-          Email: user.Email,
-          Password: user.Password,
-          role: user.role || 'admin',
-        };
-      } else if (user.Email === 'user@example.com') {
-        return {
-          FirstName: 'User',
-          LastName: '',
-          Email: user.Email,
-          Password: user.Password,
-          role: user.role || 'user',
-        };
-      } else {
-        return {
-          FirstName: user.FirstName || 'N/A',
-          LastName: user.LastName || 'N/A',
-          Email: user.Email,
-          Password: user.Password,
-          role: user.role || 'user',
-        };
-      }
-    });
+  logout(): void {
+    localStorage.removeItem('loggedInUser');
   }
 
   isLoggedIn(): boolean {

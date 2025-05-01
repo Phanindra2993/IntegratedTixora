@@ -1,59 +1,57 @@
 <div class="admin-users">
-    <!-- Header -->
-    <app-header></app-header>
-  
-    <div class="dashboard-layout">
-      <!-- Sidebar -->
-      <aside class="sidebar">
-        <h3>Admin Dashboard</h3>
-        <nav>
-          <ul>
-            <li>
-              <a routerLink="/admin/movies" routerLinkActive="active">Movies</a>
-            </li>
-            <li>
-              <a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a>
-            </li>
-            <li>
-              <a routerLink="/admin/users" routerLinkActive="active">Users</a>
-            </li>
-            <li>
-                <a
-                  routerLink="/admin/users-booking-history"
-                  routerLinkActive="active"
-                >
-                  Users Booking History
-                </a>
-              </li>
-          </ul>
-        </nav>
-      </aside>
-  
-      <!-- Main Content -->
-      <main class="main-content">
-        <h2 class="page-title">Registered Users</h2>
-  
-        <table class="users-table">
-          <thead>
-            <tr>
-              <th>S.No</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Role</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let user of users; let i = index">
-              <td>{{ i + 1 }}</td>
-              <td>{{ user.FirstName  }} {{ user.LastName }}</td>
-              <td>{{ user.Email }}</td>
-              <td>{{ user.role || 'user' }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </main>
-    </div>
-  
-    <!-- Footer -->
-    <app-footer></app-footer>
+  <app-header></app-header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <h3>Admin Dashboard</h3>
+      <nav>
+        <ul>
+          <li><a routerLink="/admin/movies" routerLinkActive="active">Movies</a></li>
+          <li><a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a></li>
+          <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
+          <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Booking History</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <h2 class="page-title">Registered Users</h2>
+
+      <div *ngIf="isLoading" class="loading-spinner">
+        Loading users...
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <table class="users-table" *ngIf="!isLoading && !errorMessage">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>
+              <span [class.admin]="user.roleName === 'admin'" 
+                    [class.user]="user.roleName === 'user'">
+                {{ user.roleName }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </div>
+
+  <app-footer></app-footer>
+</div>

@@ -1,13 +1,20 @@
+
 // export interface Booking {
-//     id: number;
-//     userId: number;
-//     movieName: string;
-//     showTime: string;
-//     bookingDate: string;
-//     TicketCount: number;
-//     totalAmount: number;
-//   }
-  
+//   bookingId: number;
+//   userId: number;
+//   userName: string;
+//   showtimeId: number;
+//   showtime: string;  
+//   movieId: number;
+//   movieTitle: string;
+//   ticketCount: number;
+//   totalAmount: number;
+//   bookingDate: string; 
+//   status: string;
+// }
+
+
+
 export interface Booking {
   bookingId: number;
   userId: number;
@@ -20,4 +27,10 @@ export interface Booking {
   totalAmount: number;
   bookingDate: string; 
   status: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  message?: string;
+  data: Booking[];  // T would be Booking[] in this case
 }

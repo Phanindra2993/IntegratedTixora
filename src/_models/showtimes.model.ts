@@ -8,3 +8,16 @@ export interface Showtime {
     availableSeats: number;
   }
   
+
+
+
+
+
+
+
+
+
+
+
+
+

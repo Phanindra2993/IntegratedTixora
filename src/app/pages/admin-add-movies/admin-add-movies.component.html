@@ -7,23 +7,10 @@
       <h3>Admin Dashboard</h3>
       <nav>
         <ul>
-          <li>
-            <a routerLink="/admin/movies" routerLinkActive="active">Movies</a>
-          </li>
-          <li>
-            <a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a>
-          </li>
-          <li>
-            <a routerLink="/admin/users" routerLinkActive="active">Users</a>
-          </li>
-          <li>
-            <a
-              routerLink="/admin/users-booking-history"
-              routerLinkActive="active"
-            >
-              Users Booking History
-            </a>
-          </li>
+          <li><a routerLink="/admin/movies" routerLinkActive="active">Movies</a></li>
+          <li><a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a></li>
+          <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
+          <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Booking History</a></li>
         </ul>
       </nav>
     </aside>
@@ -33,80 +20,79 @@
       <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
         <h2 class="page-title">Add Movies</h2>
 
-        <label>
-          Movie Name:
-          <input
-            type="text"
-            formControlName="movieName"
-            placeholder="Enter movie name"
-          />
-        </label>
+        <!-- Success/Error Messages -->
+        <div *ngIf="successMessage" class="alert success">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert error">
+          {{ errorMessage }}
+        </div>
 
-        <label>
-          Language:
+        <!-- Movie Name -->
+        <div class="form-group">
+          <label>Movie Name:</label>
+          <input type="text" formControlName="title" placeholder="Enter movie name">
+        </div>
+
+        <!-- Language -->
+        <div class="form-group">
+          <label>Language:</label>
           <select formControlName="language">
             <option value="English">English</option>
             <option value="Hindi">Hindi</option>
             <option value="Telugu">Telugu</option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          Genre:
+        <!-- Genre -->
+        <div class="form-group">
+          <label>Genre:</label>
           <select formControlName="genre">
             <option value="Drama">Drama</option>
             <option value="Comedy">Comedy</option>
             <option value="Thriller">Thriller</option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          Format:
+        <!-- Format -->
+        <div class="form-group">
+          <label>Format:</label>
           <select formControlName="format">
             <option value="2D">2D</option>
             <option value="3D">3D</option>
             <option value="4DX">4DX</option>
           </select>
-        </label>
+        </div>
 
-        <label>
-          Rating:
-          <input
-            type="number"
-            formControlName="rating"
-            min="0"
-            max="5"
-            placeholder="Enter rating (0-5)"
-          />
-        </label>
+        <!-- Show Date -->
+        <div class="form-group">
+          <label>Show Date:</label>
+          <input type="date" formControlName="showDate">
+        </div>
 
-        <label>
-          Show Times (comma-separated):
-          <input
-            type="text"
-            formControlName="showTimes"
-            placeholder="e.g., 11:00AM, 2:00PM, 6:00PM"
-          />
-        </label>
+        <!-- Show Times -->
+        <div class="form-group">
+          <label>Show Times (comma-separated):</label>
+          <input type="text" formControlName="showTimes" 
+                 placeholder="e.g., 11:00AM, 2:00PM, 6:00PM">
+        </div>
 
-        <label>
-          Description:
-          <textarea
-            formControlName="description"
-            placeholder="Enter movie description"
-          ></textarea>
-        </label>
+        <!-- Description -->
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea formControlName="description" placeholder="Enter movie description"></textarea>
+        </div>
 
-        <label>
-          Image URL:
-          <input
-            type="text"
-            formControlName="imageUrl"
-            placeholder="Enter image URL"
-          />
-        </label>
+        <!-- Image URL -->
+        <div class="form-group">
+          <label>Image URL:</label>
+          <input type="text" formControlName="imageUrl" 
+                 placeholder="Must start with http:// or https://">
+        </div>
 
-        <button type="submit">Add Movie</button>
+        <button type="submit" [disabled]="isLoading">
+          {{ isLoading ? 'Adding...' : 'Add Movie' }}
+        </button>
       </form>
     </main>
   </div>

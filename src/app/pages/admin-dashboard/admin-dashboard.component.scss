@@ -141,7 +141,6 @@ form {
 
 .card-actions {
   display: flex;
-  flex-direction: column;
   gap: 10px;
   margin-top: 10px;
 
@@ -201,4 +200,156 @@ main h2{
    font-style: italic;
     font-weight: bold ;
     margin-left: 65px;
+}
+
+/* Modal Container */
+nz-modal {
+  .ant-modal-body {
+    padding: 24px;
+  }
+}
+
+/* Form Styles */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  hr {
+    border: none;
+    border-top: 1px solid #f0f0f0;
+    margin: 20px 0;
+  }
+
+  h3 {
+    color: #1890ff;
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 16px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: all 0.3s;
+
+    &:focus {
+      border-color: #1890ff;
+      box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2);
+      outline: none;
+    }
+  }
+
+  textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  input[type="checkbox"] {
+    margin-right: 8px;
+  }
+}
+
+/* Show Times Section */
+div[formArrayName="shows"] {
+  .form-group {
+    padding: 16px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    position: relative;
+
+    > div {
+      margin-bottom: 12px;
+    }
+  }
+}
+
+/* Buttons */
+button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &[type="submit"] {
+    background-color: #1890ff;
+    color: white;
+    border: none;
+
+    &:hover {
+      background-color: #40a9ff;
+    }
+
+    &:disabled {
+      background-color: #d9d9d9;
+      cursor: not-allowed;
+    }
+  }
+
+  &[type="button"] {
+    background-color: transparent;
+    border: 1px solid #d9d9d9;
+
+    &:hover {
+      color: #1890ff;
+      border-color: #1890ff;
+    }
+  }
+}
+
+/* Remove Show Button */
+button[type="button"] {
+  &:not([disabled]) {
+    color: #ff4d4f;
+    border-color: #ff4d4f;
+
+    &:hover {
+      background-color: #fff1f0;
+    }
+  }
+}
+
+/* Add Another Show Button */
+div[formArrayName="shows"] > button[type="button"] {
+  width: 100%;
+  margin-top: 8px;
+  color: #1890ff;
+  border-color: #1890ff;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  nz-modal {
+    .ant-modal {
+      width: 90% !important;
+      max-width: 100%;
+    }
+  }
+}
+
+.inactive {
+  opacity: 0.5;
+  pointer-events: none;
 }

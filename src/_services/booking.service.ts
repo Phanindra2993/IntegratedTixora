@@ -8,12 +8,29 @@ import { Booking } from '../_models/booking.model';
 })
 export class BookingService {
   private baseUrl = 'http://localhost:5000/api/bookings';
-
+  private getallusershistoryUrl = 'https://localhost:7063/api/bookings'
+  private updateMovieUrl = 'https://localhost:7063/api/movie-showtimes'
+  private toggleUrl='https://localhost:7063/api/movies'
   constructor(private http: HttpClient) {}
 
-  getBookingsByUser(userId: number): Observable<Booking[]> {
-    return this.http.get<Booking[]>(`${this.baseUrl}/user/${userId}`);
+  getBookingsByUser(userId:number):Observable<{success:boolean,data:any[],message:string}>{
+    return this.http.get<{success: boolean, data: any[], message: string}>(`https://localhost:7063/api/bookings/user/${userId}`);
   }
+
+  getAllBookings(): Observable<{success:boolean,data:any[],message:string}> {
+    return this.http.get<{success:boolean,data:any[],message:string}>(`${this.getallusershistoryUrl}`);
+  }
+
+   // Add this method for updating movie with showtimes
+   updateMovieWithShowtimes(movieId: number, data: any): Observable<any> {
+    return this.http.put(`${this.updateMovieUrl}/${movieId}`, data);
+  }
+
+    toggleMovieStatus(movieId: number, isActive: boolean) {
+    return this.http.post(`${this.toggleUrl}/${movieId}/toggle-status?isActive=${isActive}`, {});
+  }
+
+
 
   bookTickets(payload: {
     userId: number;
