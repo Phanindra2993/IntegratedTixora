@@ -32,6 +32,25 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
 
+  // onSubmit() {
+  //   this.authService
+  //     .login(this.formData.email, this.formData.password)
+  //     .subscribe({
+  //       next: (user) => {
+  //                if(this.formData.email=='admin@tixora.com' && this.formData.password=='Admin@123'){
+  //           alert('Login Successful!');
+  //           this.router.navigate(['/admin']); 
+
+  //         }else{
+  //           this.router.navigate(['/'])
+  //         }
+  //       },
+  //       error: (err) => {
+  //         alert('Login failed: Invalid credentials');
+  //         console.error('Login error:', err);
+  //       },
+  //     });
+  // }
   onSubmit() {
     this.authService
       .login(this.formData.email, this.formData.password)
@@ -39,13 +58,13 @@ export class LoginComponent {
         next: (user) => {
           // Save user to localStorage
           localStorage.setItem('loggedInUser', JSON.stringify(user));
-         // Redirect to home or dashboard
-          if(this.formData.email=='admin@tixora.com' && this.formData.password=='Admin@123'){
-            alert('Login Successful!');
-            this.router.navigate(['/admin']); 
-
-          }else{
-            this.router.navigate(['/'])
+          alert('Login Successful!');
+          
+          // Redirect based on role
+          if (user.role === 'admin') {
+            this.router.navigate(['/admin']);
+          } else {
+            this.router.navigate(['/']);
           }
         },
         error: (err) => {

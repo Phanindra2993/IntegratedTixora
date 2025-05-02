@@ -1,75 +1,6 @@
-<!-- <app-header></app-header>
-<div class="book-tikcets-container">
-  <h1>{{movie.title}}</h1>
-
-  <div class="dates-and-showtimes-container">
-    <div class="dates">
-      <button
-        *ngFor="let date of availableDates"
-        (click)="selectDate(date)"
-        [class.active]="date === selectedDate"
-      >
-        {{ date | date : "EEE, dd MMM" }}
-      </button>
-    </div>
-
-    <div class="show-timings-container" *ngIf="selectDate">
-      <select [(ngModel)]="selectedTime">
-        <option value="" disabled selected>Select show time</option>
-        <option
-          *ngFor="let show of groupedByDate[selectedDate]"
-          [value]="show.showTime"
-          [disabled]="isPastShowTime(show.showTime, show.showDate)"
-          [value]="show.showTime"
-        >
-          {{ show.showTime }}
-        </option>
-      </select>
-    </div>
-  </div>
-
-  <div class="seats-container">
-    <h3>How many Seats?</h3>
-    <div class="icon-display" *ngIf="seatCount">
-      <span class="emoji">
-        {{
-          seatCount === 1
-            ? "🚲"
-            : seatCount === 2
-            ? "🏍️"
-            : seatCount === 3
-            ? "🛺"
-            : seatCount === 4
-            ? "🚗"
-            : seatCount === 5
-            ? "🚐"
-            : seatCount === 6
-            ? "🚛"
-            : ""
-        }}
-      </span>
-    </div>
-    <button
-      *ngFor="let count of [1, 2, 3, 4, 5, 6]"
-      (click)="seatCount = count"
-      [class.selected]="seatCount === count"
-    >
-      {{ count }}
-    </button>
-  </div>
-  <!-- <button (click)="confirmBooking()">Select Seats</button> -->
-  <!--<button
-    (click)="confirmBooking()"
-    [disabled]="isLoading || !selectedDate || !selectedTime || !seatCount"
-  >
-    {{ isLoading ? "Processing..." : "Confirm Booking" }}
-  </button>
-  <small *ngIf="showError">{{ errorMessage }}</small>
-</div>
-<app-footer></app-footer> -->
 <app-header></app-header>
 <div class="book-tikcets-container">
-  <h1>{{movie.title}}</h1>
+  <h1>{{ movie.title }}</h1>
 
   <div class="dates-and-showtimes-container">
     <div class="dates">
@@ -126,13 +57,17 @@
       {{ count }}
     </button>
   </div>
-  <!-- <button (click)="confirmBooking()">Select Seats</button> -->
-  <button
-    (click)="confirmBooking()"
-    [disabled]="isLoading || !selectedDate || !selectedTime || !seatCount"
+  
+  
+    <button
+    nz-button
+    nzType="primary"
+    (click)="showBookingConfirmation()"
+    [nzLoading]="isLoading"
   >
-    {{ isLoading ? "Processing..." : "Confirm Booking" }}
+    Confirm Booking
   </button>
+  
   <small *ngIf="showError">{{ errorMessage }}</small>
 </div>
 <app-footer></app-footer>

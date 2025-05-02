@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 // import { Movie, NewMovie } from '../_models/movies.model';
 import { Showtime } from '../_models/showtimes.model';
-import { Movie, MovieCreateRequest } from '../_models/movies.model';
+import { Movie, MovieCreateRequest, MovieStatusResponse } from '../_models/movies.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,6 @@ export class MoviesService {
 
   private baseUrl = 'https://localhost:7063/api/movies';
   private apiUrl = 'https://localhost:7063/api/movie-showtimes'
-  private toggleUrl = 'https://localhost:7063/api/movies/${movie.id}/toggle-status?isActive=${newStatus}'
   constructor(private http: HttpClient) {}
 
   getMovieById(
@@ -55,34 +54,32 @@ export class MoviesService {
       );
   }
 
-  // addMovie(movie: NewMovie): Observable<any> {
-  //   return this.http.post<any>(this.baseUrl, movie);
-  // }
+ 
 
   addMovie(movieRequest: MovieCreateRequest): Observable<any> {
     console.log('Sending movie data to API:', movieRequest);
     return this.http.post<any>(this.apiUrl, movieRequest);
   }
 
-// For booking tickets
 
-
-  // getMovieById(id: number): Observable<Movie> {
-  //   return this.http.get<Movie>(`${this.baseUrl}/${id}`);
-  // }
 
   updateMovie(movie: Movie): Observable<any> {
     return this.http.put(`${this.baseUrl}/${movie.movieId}`, movie);
   }
 
-  deleteMovie(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
-  }
+  // deleteMovie(id: number): Observable<any> {
+  //   return this.http.delete(`${this.baseUrl}/${id}`);
+  // }
 
-  toggleMovieStatus(movie: Movie): Observable<any> {
-    const updatedMovie = { ...movie, isActive: !movie.isActive };
-    return this.http.put(`${this.toggleUrl}/${movie.movieId}`, updatedMovie);
-  }
+
+
+toggleMovieStatus(movieId: number, isActive: boolean): Observable<MovieStatusResponse > {
+  const params = new HttpParams().set('isActive', isActive.toString());
+  const url = `https://localhost:7063/api/movies/${movieId}/toggle-status`;
+  return this.http.patch<MovieStatusResponse >(url, null, { params });
+}
+
+  
 
   bookTickets(payload: {
     userId: number;

@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
     NzIconModule,
     RouterLink,
     CommonModule,
+    NzIconModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -52,6 +53,43 @@ export class HeaderComponent {
       this.router.navigate(['/']);
     }
   }
+
+  // getDisplayName(): string {
+  //   if (!this.loggedInUser) return '';
+
+  //   return this.loggedInUser.firstName ||
+  //          this.loggedInUser.username ||
+  //          this.loggedInUser.email.split('@')[0];
+  // }
+  // getGreeting(): string {
+  //   if (!this.loggedInUser) return '';
+
+  //   const name = this.loggedInUser.username ||
+  //                this.loggedInUser.firstName ||
+  //                this.loggedInUser.email?.split('@')[0] ||
+  //                'User';
+
+  //   return this.loggedInUser.role === 'admin'
+  //     ? `Admin, ${name}`
+  //     : `Hi, ${name}`;
+  // }
+
+
+  getGreeting(): string {
+    if (!this.loggedInUser) return '';
+    
+    // For admin - just show "Admin"
+    if (this.loggedInUser.role === 'admin') {
+      return 'Admin';
+    }
+    
+    // For regular users - show "Hi, [name]"
+    const name = this.loggedInUser.firstName || 
+                 this.loggedInUser.username || 
+                 this.loggedInUser.email?.split('@')[0];
+    return `Hi, ${name || 'User'}`;
+  }
+  
 
   loggedInUser: any = null;
   userProfileImage: string = 'assets/default-user.jpg';

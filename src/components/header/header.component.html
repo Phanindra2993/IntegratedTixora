@@ -27,8 +27,12 @@
   </div>
 
   <div class="user-profile" *ngIf="loggedInUser">
-    <span class="greeting">Hi, {{ loggedInUser.firstName }}</span>
-    <nz-icon class="user-icon" nzType="user" nzTheme="outline" />
+    <span class="greeting">{{ getGreeting() }}</span>
+    <nz-icon 
+    [nzType]="loggedInUser.role === 'admin' ? 'safety-certificate' : 'user'"
+    [nzTheme]="loggedInUser.role === 'admin' ? 'fill' : 'outline'"
+    class="user-icon"
+  ></nz-icon>
   </div>
   
   <div  *ngIf="!loggedInUser">

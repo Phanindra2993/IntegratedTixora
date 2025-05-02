@@ -353,3 +353,18 @@ div[formArrayName="shows"] > button[type="button"] {
   opacity: 0.5;
   pointer-events: none;
 }
+
+
+
+
+.bottom-action {
+  position: relative;
+  pointer-events: auto !important; 
+}
+
+button[nz-button] {
+  transition: all 0.3s;
+}
+button[nz-button]:hover {
+  transform: scale(1.05);
+}

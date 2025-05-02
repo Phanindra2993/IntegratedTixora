@@ -108,7 +108,12 @@
     font-weight: bold;
     border: none;
     border-radius: 12px;
+    padding: 20px;
+    font-size: 17px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: background-color 0.3s ease;
 
     &:hover {

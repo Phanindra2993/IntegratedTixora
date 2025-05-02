@@ -1,12 +1,9 @@
 <!-- Header -->
 <app-header class="app-header" (searchEvent)="onSearch($event)"></app-header>
 <div class="admin-dashboard">
-  <div class="dashboard-layout" >
+  <div class="dashboard-layout">
     <!-- Sidebar -->
-    <aside
-      class="sidebar"
-      
-    >
+    <aside class="sidebar">
       <h3>Admin Dashboard</h3>
       <nav>
         <ul>
@@ -35,11 +32,11 @@
 
     <!-- Main Content -->
 
-    <main class="main-content" >
+    <main class="main-content">
       <h2 class="page-title">Available Movies...</h2>
-      <div class="movies-grid" >
+      <div class="movies-grid">
         <nz-card
-          *ngFor="let movie of movies"
+          *ngFor="let movie of filteredMovies"
           nzHoverable
           [ngClass]="{ inactive: !movie.isActive }"
           style="width: 200px; margin: 10px"
@@ -73,13 +70,16 @@
               </button> -->
             </div>
             <div class="bottom-action">
-              <button
-                nz-button
-                [nzType]="movie.isActive ? 'default' : 'primary'"
-                (click)="toggleMovieStatus(movie)"
-              >
-                {{ movie.isActive ? "Inactive" : "Active" }}
-              </button>
+              <div class="bottom-action">
+                <button
+                  nz-button
+                  [nzType]="movie.isActive ? 'default' : 'primary'"
+                  (click)="toggleMovieStatus(movie)"
+                  [disabled]="false"
+                >
+                  {{ movie.isActive ? "Deactivate" : "Activate" }}
+                </button>
+              </div>
             </div>
           </div>
         </nz-card>
@@ -139,7 +139,7 @@
       </form>
     </ng-container>
   </nz-modal>  -->
-  
+
   <nz-modal
   [(nzVisible)]="isModalVisible"
   [nzTitle]="selectedMovie ? 'Edit Movie' : 'Add New Movie'"
@@ -149,124 +149,124 @@
   (nzOnOk)="saveMovie()"
   (nzOnCancel)="closeModal()"
   [nzOkDisabled]="movieForm.invalid"
->
-  <ng-container *nzModalContent>
-    <form [formGroup]="movieForm">
-      <div formGroupName="movie">
-        <h3>Movie Details</h3>
+  >
+    <ng-container *nzModalContent>
+      <form [formGroup]="movieForm">
+        <div formGroupName="movie">
+          <h3>Movie Details</h3>
 
-        <div class="form-group">
-          <label>Title:</label>
-          <input formControlName="title" type="text" placeholder="Enter movie title" />
-        </div>
-
-        <div class="form-group">
-          <label>Genre:</label>
-          <select formControlName="genre">
-            <option value="Drama">Drama</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Thriller">Thriller</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Language:</label>
-          <select formControlName="language">
-            <option value="English">English</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Telugu">Telugu</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Format:</label>
-          <select formControlName="format">
-            <option value="2D">2D</option>
-            <option value="3D">3D</option>
-            <option value="4DX">4DX</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label>Description:</label>
-          <textarea formControlName="description"></textarea>
-        </div>
-
-        <div class="form-group">
-          <label>Image URL:</label>
-          <input formControlName="imageUrl" type="text" />
-        </div>
-
-        <div class="form-group">
-          <label>
-            <input formControlName="isActive" type="checkbox" />
-            Active
-          </label>
-        </div>
-      </div>
-
-      <hr />
-
-      <div formArrayName="shows">
-        <h3>Show Details</h3>
-        <div
-          class="form-group"
-          *ngFor="let show of shows.controls; let i = index"
-          [formGroupName]="i"
-        >
-          <div>
-            <label>Movie ID:</label>
-            <input formControlName="movieId" type="number" />
+          <div class="form-group">
+            <label>Title:</label>
+            <input
+              formControlName="title"
+              type="text"
+              placeholder="Enter movie title"
+            />
           </div>
-          <div>
-            <label>Show Date:</label>
-            <input formControlName="showDate" type="date" />
+
+          <div class="form-group">
+            <label>Genre:</label>
+            <select formControlName="genre">
+              <option value="Drama">Drama</option>
+              <option value="Comedy">Comedy</option>
+              <option value="Thriller">Thriller</option>
+            </select>
           </div>
-          <div>
-            <label>Show Time:</label>
-            <input formControlName="showTime" type="time" />
+
+          <div class="form-group">
+            <label>Language:</label>
+            <select formControlName="language">
+              <option value="English">English</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Telugu">Telugu</option>
+            </select>
           </div>
-          <div>
-            <label>Available Seats:</label>
-            <input formControlName="availableSeats" type="number" />
+
+          <div class="form-group">
+            <label>Format:</label>
+            <select formControlName="format">
+              <option value="2D">2D</option>
+              <option value="3D">3D</option>
+              <option value="4DX">4DX</option>
+            </select>
           </div>
-          <div>
-            <label>Showtime ID:</label>
-            <input formControlName="showtimeId" type="number" />
+
+          <div class="form-group">
+            <label>Description:</label>
+            <textarea formControlName="description"></textarea>
           </div>
-          <div>
+
+          <div class="form-group">
+            <label>Image URL:</label>
+            <input formControlName="imageUrl" type="text" />
+          </div>
+
+          <div class="form-group">
             <label>
               <input formControlName="isActive" type="checkbox" />
-              Show Active
+              Active
             </label>
           </div>
-          <button type="button" (click)="removeShow(i)" *ngIf="shows.length > 1">
-            Remove Show
-          </button>
         </div>
 
-        <button type="button" (click)="addShow()">Add Another Show</button>
-      </div>
+        <hr />
 
-      <hr />
+        <div formArrayName="shows">
+          <h3>Show Details</h3>
+          <div
+            class="form-group"
+            *ngFor="let show of shows.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div>
+              <label>Movie ID:</label>
+              <input formControlName="movieId" type="number" />
+            </div>
+            <div>
+              <label>Show Date:</label>
+              <input formControlName="showDate" type="date" />
+            </div>
+            <div>
+              <label>Show Time:</label>
+              <input formControlName="showTime" type="time" />
+            </div>
+            <div>
+              <label>Available Seats:</label>
+              <input formControlName="availableSeats" type="number" />
+            </div>
+            <div>
+              <label>Showtime ID:</label>
+              <input formControlName="showtimeId" type="number" />
+            </div>
+            <div>
+              <label>
+                <input formControlName="isActive" type="checkbox" />
+                Show Active
+              </label>
+            </div>
+            <button
+              type="button"
+              (click)="removeShow(i)"
+              *ngIf="shows.length > 1"
+            >
+              Remove Show
+            </button>
+          </div>
 
-      <button type="submit" [disabled]="movieForm.invalid || isLoading" (click)="saveMovie()">
-        {{ selectedMovie ? 'Update Movie' : 'Add Movie' }}
-      </button>
-    </form>
-  </ng-container>
-</nz-modal>
+          <button type="button" (click)="addShow()">Add Another Show</button>
+        </div>
 
+        <hr />
 
-
-
+        <button
+          type="submit"
+          [disabled]="movieForm.invalid || isLoading"
+          (click)="saveMovie()"
+        >
+          {{ selectedMovie ? "Update Movie" : "Add Movie" }}
+        </button>
+      </form>
+    </ng-container>
+  </nz-modal>
 </div>
 <app-footer></app-footer>
-
-
-
-
-
-
-
-

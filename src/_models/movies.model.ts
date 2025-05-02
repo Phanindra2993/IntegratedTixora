@@ -53,6 +53,11 @@ export interface Movie {
   imageUrl: string;
   isActive: boolean;
 }
+export interface MovieStatusResponse {
+  success: boolean;
+  message: string;
+}
+
 
 export interface Showtime {
   movieId?: number;

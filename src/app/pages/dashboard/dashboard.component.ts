@@ -48,29 +48,12 @@ export class DashboardComponent implements OnInit {
     this.fetchMovies();
   }
 
-  // Fetch movies from db.json and filter only active movies
-  // fetchMovies(): void {
-  //   this.http.get<Movie[]>('http://localhost:3000/movies').subscribe({
-  //     next: (data) => {
-  //       this.movies = data.filter((movie) => movie.isActive);
-  //       this.filteredMovies = this.movies;
-  //       this.isLoading = false;
-  //     },
-  //     error: (err) => {
-  //       console.error('Error fetching movies:', err);
-  //       this.errorMessage = 'Error while fetching movies';
-  //       this.isLoading = false;
-  //     },
-  //   });
-  // }
-
   fetchMovies(): void {
     this.moviesService.getAllMovies().subscribe({
       next: (response) => {
         this.movies = response.data.filter((movie) => movie.isActive );
          console.log(this.movies);
         this.filteredMovies = this.movies;
-      //  console.log(this.filterMovies);
                
         this.isLoading = false;
       },

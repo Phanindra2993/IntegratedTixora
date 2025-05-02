@@ -1,4 +1,3 @@
-
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { MovieDetailsComponent } from './pages/movie-details/movie-details.component';
@@ -20,43 +19,36 @@ import { BookingHistoryComponent } from './pages/booking-history/booking-history
 import { AdminusershistoryComponent } from './pages/adminusershistory/adminusershistory.component';
 // import { AdminUsersHistoryComponent } from './pages/admin-users-history/admin-users-history.component';
 
-
-
-
 export const routes: Routes = [
   // User Dashboard Route
   {
     path: '',
-    component: DashboardComponent, 
+    component: DashboardComponent,
   },
 
   {
     path: 'movie/:movieId',
-    component: MovieDetailsComponent, 
+    component: MovieDetailsComponent,
   },
 
   {
     path: 'book/:id',
-    component: BookTicketsComponent, 
+    component: BookTicketsComponent,
   },
 
   // User Ticket Route
   {
     path: 'ticket/:id',
-    component: TicketComponent, 
+    component: TicketComponent,
   },
-
-
-  // User Login and Register Routes
   {
     path: 'login',
-    component: LoginComponent, 
+    component: LoginComponent,
   },
   {
     path: 'register',
-    component: RegisterComponent, 
+    component: RegisterComponent,
   },
-
 
   // Admin Routes
   {
@@ -64,11 +56,11 @@ export const routes: Routes = [
     children: [
       {
         path: 'movies',
-        component: AdminDashboardComponent, 
+        component: AdminDashboardComponent,
       },
       {
         path: 'add-movies',
-        component: AdminAddMoviesComponent, 
+        component: AdminAddMoviesComponent,
       },
       {
         path: 'users',
@@ -79,12 +71,12 @@ export const routes: Routes = [
       //   component: AdminUsersHistoryComponent
       // },
       {
-        path:'users-booking-history',
-        component:AdminusershistoryComponent
+        path: 'users-booking-history',
+        component: AdminusershistoryComponent,
       },
       {
         path: '',
-        redirectTo: 'movies', 
+        redirectTo: 'movies',
         pathMatch: 'full',
       },
     ],
@@ -94,7 +86,6 @@ export const routes: Routes = [
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-of-service', component: TermsOfServiceComponent },
   { path: 'help', component: HelpPageComponent },
-
 
   // Fallback Route
 
@@ -126,6 +117,6 @@ export const routes: Routes = [
 
   {
     path: '**',
-    redirectTo: '', 
+    redirectTo: '',
   },
 ];
