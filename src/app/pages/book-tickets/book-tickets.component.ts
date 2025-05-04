@@ -11,12 +11,12 @@ import { FormsModule } from '@angular/forms';
 import { Showtime } from '../../../_models/showtimes.model';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDemoModalConfirmComponent } from '../../../components/confirm-modal/confirm-modal.component';
-import { NzModalService } from 'ng-zorro-antd/modal';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-book-tickets',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule,NzButtonModule],
+  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule,NzButtonModule,NzModalModule ],
   templateUrl: './book-tickets.component.html',
   styleUrl: './book-tickets.component.scss',
 })
@@ -70,15 +70,22 @@ export class BookTicketsComponent {
     this.availableDates = Object.keys(this.groupedByDate);
   }
 
- 
+
   selectDate(date: string) {
     this.selectedDate = date;
     this.selectedTime = '';
+    this.clearErrors(); 
   }
+  
   selectTime(time: string) {
     this.selectedTime = time;
+    this.clearErrors(); 
   }
-
+  
+  clearErrors() {
+    this.showError = false;
+    this.errorMessage = '';
+  }
   isLoading: boolean = false;
   maxSeats: number = 6; 
 
@@ -188,21 +195,29 @@ export class BookTicketsComponent {
   }
 
 
-
   showBookingConfirmation(): void {
-    if (!this.selectedDate || !this.seatCount || !this.selectedTime) {
+    // Clear previous errors
+    this.clearErrors();
+  
+    if (!this.selectedDate || !this.selectedTime || !this.seatCount) {
       this.showError = true;
       this.errorMessage = '*Please select Date, Time, and Number of Seats.';
       return;
     }
-
+  
+    if (this.seatCount < 1 || this.seatCount > this.maxSeats) {
+      this.showError = true;
+      this.errorMessage = '*Please select between 1 and ${this.maxSeats} seats.';
+      return;
+    }
+  
     const bookingDetails = {
       movieTitle: this.movie.title,
       selectedDate: this.selectedDate,
       selectedTime: this.selectedTime,
       seatCount: this.seatCount
     };
-
+  
     this.modal.confirm({
       nzTitle: '<i>Confirm Your Booking</i>',
       nzContent: `
@@ -216,7 +231,7 @@ export class BookTicketsComponent {
       `,
       nzOkText: 'Confirm Booking',
       nzOkType: 'primary',
-      nzOnOk: () => this.processBooking(),
+      nzOnOk: () => this.confirmBooking(), // Call confirmBooking directly
       nzCancelText: 'Go Back',
       nzOnCancel: () => console.log('Booking cancelled')
     });

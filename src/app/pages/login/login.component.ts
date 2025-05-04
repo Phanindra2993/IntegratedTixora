@@ -18,6 +18,9 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     FooterComponent,
     RouterLink,
+    
+    
+    
   ],
 
   templateUrl: './login.component.html',
@@ -28,29 +31,15 @@ export class LoginComponent {
     email: '',
     password: '',
   };
+  showPassword = false;
+  
 
   constructor(private router: Router, private authService: AuthService) {}
 
 
-  // onSubmit() {
-  //   this.authService
-  //     .login(this.formData.email, this.formData.password)
-  //     .subscribe({
-  //       next: (user) => {
-  //                if(this.formData.email=='admin@tixora.com' && this.formData.password=='Admin@123'){
-  //           alert('Login Successful!');
-  //           this.router.navigate(['/admin']); 
-
-  //         }else{
-  //           this.router.navigate(['/'])
-  //         }
-  //       },
-  //       error: (err) => {
-  //         alert('Login failed: Invalid credentials');
-  //         console.error('Login error:', err);
-  //       },
-  //     });
-  // }
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
   onSubmit() {
     this.authService
       .login(this.formData.email, this.formData.password)

@@ -51,15 +51,14 @@
     </div>
     <button
       *ngFor="let count of [1, 2, 3, 4, 5, 6]"
-      (click)="seatCount = count"
+      (click)="seatCount = count; clearErrors()"
       [class.selected]="seatCount === count"
     >
       {{ count }}
     </button>
   </div>
-  
-  
-    <button
+
+  <button
     nz-button
     nzType="primary"
     (click)="showBookingConfirmation()"
@@ -67,7 +66,7 @@
   >
     Confirm Booking
   </button>
-  
+
   <small *ngIf="showError">{{ errorMessage }}</small>
 </div>
 <app-footer></app-footer>

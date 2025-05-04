@@ -1,13 +1,15 @@
 .form-container {
   max-width: 400px;
-  margin: 50px auto;
-  padding: 50px;
+  margin:auto;
+  padding: 20px;
   background-color: #f2f2f2;
   border-radius: 12px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
   top: 10vh;
-  z-index: -1;
+  padding-bottom: 60px;
+  min-height: 100vh;
+
 }
 
 .form-container h2 {
@@ -49,63 +51,34 @@ p {
   position: fixed;
   top: 0;
   width: 100vw;
+  z-index: 1000;
+}
+.app-footer{
+  position: fixed;
+  bottom: 10vh;
 }
 small {
   color: red;
 }
 
 
-// .form-container {
-//   max-width: 400px;
-//   margin: 50px auto;
-//   padding: 20px;
-//   background-color: #f2f2f2;
-//   border-radius: 12px;
-//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-//   position: relative;
-//   top: 10vh;
-// }
 
-// .form-container h2 {
-//   text-align: center;
-//   margin-bottom: 20px;
-// }
 
-// .form-container input {
-//   width: 100%;
-//   padding: 10px;
-//   margin: 10px 0;
-//   border: 1px solid #ccc;
-//   border-radius: 6px;
-// }
 
-// button {
-//   width: 100%;
-//   padding: 10px;
-//   background-color: #007bff;
-//   color: white;
-//   font-weight: bold;
-//   border: none;
-//   border-radius: 6px;
-//   cursor: pointer;
-//   margin-top: 10px;
-// }
 
-// button:disabled {
-//   background-color: #a0a0a0;
-//   cursor: not-allowed;
-// }
 
-// p {
-//   text-align: center;
-//   margin-top: 15px;
-// }
 
-// .app-header {
-//   position: fixed;
-//   top: 0;
-//   width: 100vw;
-// }
-// small {
-//   color: red;
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

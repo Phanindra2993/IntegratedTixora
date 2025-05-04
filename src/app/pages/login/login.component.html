@@ -15,16 +15,23 @@
       <small *ngIf="email.errors?.['required']">*Email is required</small>
       <small *ngIf="email.errors?.['email']">*Please enter a valid Email</small>
     </div>
-
-    <input
-      type="password"
-      placeholder="Password"
-      name="Password"
-      [(ngModel)]="formData.password"
-      #password="ngModel"
-      required
-      minlength="6"
-    />
+    <div class="password-container">
+      <input
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Password"
+        name="Password"
+        [(ngModel)]="formData.password"
+        #password="ngModel"
+        required
+        minlength="6"
+      />
+      <span class="toggle-password" (click)="togglePasswordVisibility()">
+        <span class="material-icons">
+          {{ showPassword ? 'visibility_off' : 'visibility' }}
+        </span>
+      </span>
+    </div>
+    
     <div *ngIf="(loginForm.submitted || password.touched) && password.invalid">
       <small *ngIf="password.errors?.['required']">*Password is required</small>
       <small *ngIf="password.errors?.['minlength']"

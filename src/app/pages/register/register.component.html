@@ -4,19 +4,21 @@
   <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
     <input
       type="text"
-      placeholder="firstName"
+      placeholder="FirstName"
       name="firstName"
       [(ngModel)]="formData.firstName"
       #firstName="ngModel"
       required
     />
-    <div *ngIf="(registerForm.submitted || firstName.touched) && firstName.invalid">
+    <div
+      *ngIf="(registerForm.submitted || firstName.touched) && firstName.invalid"
+    >
       <small *ngIf="firstName.errors?.['required']"
         >*First Name is required</small
       >
     </div>
 
-    <input  
+    <input
       type="text"
       placeholder="LastName"
       name="lastName"
@@ -24,13 +26,17 @@
       #lastName="ngModel"
       required
     />
-    <div *ngIf="(registerForm.submitted || lastName.touched) && lastName.invalid">
-      <small *ngIf="lastName.errors?.['required']">*Last Name is required</small>
+    <div
+      *ngIf="(registerForm.submitted || lastName.touched) && lastName.invalid"
+    >
+      <small *ngIf="lastName.errors?.['required']"
+        >*Last Name is required</small
+      >
     </div>
 
     <input
       type="email"
-      placeholder="email"
+      placeholder="Email"
       name="email"
       [(ngModel)]="formData.email"
       #email="ngModel"
@@ -40,6 +46,9 @@
     <div *ngIf="(registerForm.submitted || email.touched) && email.invalid">
       <small *ngIf="email.errors?.['required']">*email is required</small>
       <small *ngIf="email.errors?.['email']">*Please enter a valid email</small>
+    </div>
+    <div *ngIf="backendErrors['Email']">
+      <small *ngFor="let error of backendErrors['Email']">{{ error }}</small>
     </div>
 
     <input
@@ -59,25 +68,33 @@
         >*Enter a valid 10-digit phone</small
       >
     </div>
+    <div *ngIf="backendErrors['Phone']">
+      <small *ngFor="let error of backendErrors['Phone']">{{ error }}</small>
+    </div>
 
     <input
       type="password"
-      placeholder="password"
+      placeholder="Password"
       name="password"
       [(ngModel)]="formData.password"
       #password="ngModel"
       required
       minlength="6"
-      pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$"
+      pattern="^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9])(?!.*\s).+$"
     />
-    <div *ngIf="(registerForm.submitted || password.touched) && password.invalid">
+    <div
+      *ngIf="(registerForm.submitted || password.touched) && password.invalid"
+    >
       <small *ngIf="password.errors?.['required']">*password is required</small>
       <small *ngIf="password.errors?.['minlength']"
-        >*password must be at least 6 characters</small>
-        <small *ngIf="password.errors?.['pattern']">
-          password must have at least 1 uppercase letter, 1 number, and 1 symbol.
-        </small>
-       
+        >*password must be at least 6 characters</small
+      >
+      <small *ngIf="password.errors?.['pattern']">
+        password must have at least 1 uppercase letter, 1 number, and 1 symbol.
+      </small>
+    </div>
+    <div *ngIf="backendErrors['Password']">
+      <small *ngFor="let error of backendErrors['Password']">{{ error }}</small>
     </div>
 
     <button type="submit" [disabled]="!registerForm.valid">Register</button>
@@ -85,7 +102,7 @@
   <p>Already have an account? <a routerLink="/login">Login here</a></p>
 </div>
 
-<app-footer></app-footer> 
+<app-footer></app-footer>
 <!-- <app-header class="app-header"></app-header>
 <div class="form-container">
   <h2>Register</h2>

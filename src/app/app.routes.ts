@@ -29,17 +29,20 @@ export const routes: Routes = [
   {
     path: 'movie/:movieId',
     component: MovieDetailsComponent,
+    canActivate: [authGuard],
   },
 
   {
     path: 'book/:id',
     component: BookTicketsComponent,
+    canActivate: [authGuard],
   },
 
   // User Ticket Route
   {
     path: 'ticket/:id',
     component: TicketComponent,
+    canActivate: [authGuard],
   },
   {
     path: 'login',
@@ -57,22 +60,23 @@ export const routes: Routes = [
       {
         path: 'movies',
         component: AdminDashboardComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'add-movies',
         component: AdminAddMoviesComponent,
+        canActivate: [authGuard],
       },
       {
         path: 'users',
         component: AdminUsersComponent,
+        canActivate: [authGuard],
       },
-      // {
-      //   path: 'admin-booking-history',
-      //   component: AdminUsersHistoryComponent
-      // },
+
       {
         path: 'users-booking-history',
         component: AdminusershistoryComponent,
+        canActivate: [authGuard],
       },
       {
         path: '',
@@ -113,6 +117,7 @@ export const routes: Routes = [
   {
     path: 'booking-history',
     component: BookingHistoryComponent,
+    canActivate: [authGuard],
   },
 
   {

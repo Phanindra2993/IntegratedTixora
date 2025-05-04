@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiResponse, Booking } from '../../../_models/booking.model';
 import { BookingService } from '../../../_services/booking.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../../components/header/header.component';

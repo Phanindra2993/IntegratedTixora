@@ -10,7 +10,7 @@
   
   /* Main Content Styles */
   .main-content {
-    flex: 1;
+    width: 85vw;
     padding: 2.5rem;
     background-color: white;
     min-height: calc(100vh - 120px);
@@ -284,4 +284,9 @@
     margin-left: 15vw;
     position: relative;
     top: 10vh;
+  }
+
+
+  .sidebar{
+    width: 15vw;
   }

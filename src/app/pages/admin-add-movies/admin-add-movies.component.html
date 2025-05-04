@@ -10,7 +10,7 @@
           <li><a routerLink="/admin/movies" routerLinkActive="active">Movies</a></li>
           <li><a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a></li>
           <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
-          <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Booking History</a></li>
+          <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Users Booking History</a></li>
         </ul>
       </nav>
     </aside>
@@ -37,21 +37,39 @@
         <!-- Language -->
         <div class="form-group">
           <label>Language:</label>
-          <select formControlName="language">
-            <option value="English">English</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Telugu">Telugu</option>
-          </select>
+          <div class="tag-input-container">
+            <div class="tag" *ngFor="let lang of languageTags; let i = index">
+              {{ lang }}
+              <span class="remove-tag" (click)="removeLanguage(i)">×</span>
+            </div>
+            <input 
+              type="text" 
+              placeholder="Add language (e.g., Telugu)" 
+              (keydown)="addLanguage($event)"
+              [formControl]="languageControl"            >
+          </div>
+          <small *ngIf="movieForm.get('language')?.errors?.['pattern']">
+            Only letters and spaces allowed
+          </small>
         </div>
 
         <!-- Genre -->
         <div class="form-group">
           <label>Genre:</label>
-          <select formControlName="genre">
-            <option value="Drama">Drama</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Thriller">Thriller</option>
-          </select>
+          <div class="tag-input-container">
+            <div class="tag" *ngFor="let genre of genreTags; let i = index">
+              {{ genre }}
+              <span class="remove-tag" (click)="removeGenre(i)">×</span>
+            </div>
+            <input 
+              type="text" 
+              placeholder="Add genre (e.g., Drama)" 
+              (keydown)="addGenre($event)"
+              [formControl]="genreControl"            >
+          </div>
+          <small *ngIf="movieForm.get('genre')?.errors?.['pattern']">
+            Only letters and spaces allowed
+          </small>
         </div>
 
         <!-- Format -->
@@ -97,3 +115,5 @@
     </main>
   </div>
 </div>
+
+<app-footer></app-footer>

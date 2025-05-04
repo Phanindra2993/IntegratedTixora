@@ -87,58 +87,6 @@
     </main>
   </div>
 
-  <!-- Modal -->
-  <!-- <nz-modal
-    [(nzVisible)]="isModalVisible"
-    nzTitle="Edit Movie"
-    nzOkText="Save"
-    nzCancelText="Cancel"
-    (nzOnOk)="saveMovie()"
-    (nzOnCancel)="closeModal()"
-  >
-    <ng-container *nzModalContent>
-      <form [formGroup]="movieForm">
-       
-        <label>
-          Movie Name:
-          <input type="text" formControlName="movieName" />
-        </label>
-        <label>
-          
-          Genre:
-          <input type="text" formControlName="genre" />
-        </label>
-        <label>
-          Language:
-          <input type="text" formControlName="language" />
-        </label>
-        <label>
-          Format:
-          <input type="text" formControlName="format" />
-        </label>
-        <label>
-          Rating:
-          <input type="number" formControlName="rating" min="0" max="5" />
-        </label>
-        <label>
-          Show Times:
-          <select formControlName="showTimes">
-            <option *ngFor="let time of availableShowTimes" [value]="time">
-              {{ time }}
-            </option>
-          </select>
-        </label>
-        <label>
-          Description:
-          <textarea formControlName="description"></textarea>
-        </label>
-        <label>
-          Image URL:
-          <input type="text" formControlName="imageUrl" />
-        </label>
-      </form>
-    </ng-container>
-  </nz-modal>  -->
 
   <nz-modal
   [(nzVisible)]="isModalVisible"
