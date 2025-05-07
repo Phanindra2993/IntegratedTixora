@@ -43,16 +43,16 @@ export class BookingHistoryComponent implements OnInit {
   
     this.bookingService.getBookingsByUser(userId).subscribe({
       next: (response) => {
+        console.log("Booking user:",response);
+        
         if (response.success) {
           this.bookings = response.data.map(booking => {
-            // Parse the ISO date string
-            const bookingDate = new Date(booking.bookingDate);
-            
+     
             return {
               ...booking,
               movieTitle: booking.movieTitle || booking.movie?.title || 'Unknown Movie',
-              date: this.formatDate(bookingDate),  // Formatted date
-              time: this.formatTime(bookingDate),  // Formatted time
+              date: booking.showDate,
+              time: booking.showTime,  
               quantity: booking.ticketCount || booking.quantity || 0,
               amount: booking.totalAmount || booking.amount || 0
             };
@@ -71,35 +71,35 @@ export class BookingHistoryComponent implements OnInit {
     });
   }
   
-  private formatDate(date: Date): string {
-    return date.toLocaleDateString('en-IN', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    });
-  }
+  // private formatDate(date: Date): string {
+  //   return date.toLocaleDateString('en-IN', { 
+  //     year: 'numeric', 
+  //     month: 'short', 
+  //     day: 'numeric' 
+  //   });
+  // }
   
-  private formatTime(date: Date): string {
-    return date.toLocaleTimeString('en-IN', {
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: true
-    });
-    // Output: "10:14 PM" (Indian English format)
-  }
+  // private formatTime(date: Date): string {
+  //   return date.toLocaleTimeString('en-IN', {
+  //     hour: '2-digit',
+  //     minute: '2-digit',
+  //     hour12: true
+  //   });
+  //   // Output: "10:14 PM" (Indian English format)
+  // }
 
-  private getUserId(): number | null {
+  private getUserId(): any | null {
     const user = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
     return user?.userId || null;
   }
 
-  private getShowDate(showtime: string): string {
-    return showtime.split(' ')[0];
-  }
+  // private getShowDate(showtime: string): any {
+  //   return showtime.split(' ')[0];
+  // }
 
-  private getShowTime(showtime: string): string {
-    return showtime.split(' ')[1];
-  }
+  // private getShowTime(showtime: string): string {
+  //   return showtime.split(' ')[1];
+  // }
 
   generateQRCodeUrl(booking: any): string {
     const data = `BookingID: ${booking.bookingId}|Movie: ${booking.movieTitle}|Show: ${booking.date} ${booking.time}`;

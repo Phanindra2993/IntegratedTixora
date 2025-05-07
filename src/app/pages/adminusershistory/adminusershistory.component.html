@@ -9,10 +9,10 @@
         <h3>Admin Dashboard</h3>
         <nav>
           <ul>
-            <li><a routerLink="/admin/movies" routerLinkActive="active">Movies</a></li>
-            <li><a routerLink="/admin/add-movies" routerLinkActive="active">Add Movies</a></li>
-            <li><a routerLink="/admin/users" routerLinkActive="active">Users</a></li>
-            <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Booking History</a></li>
+            <li><a routerLink="/admin/movies" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Movies</a></li>
+            <li><a routerLink="/admin/add-movies" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Add Movies</a></li>
+            <li><a routerLink="/admin/users" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: false }">Users</a></li>
+            <li><a routerLink="/admin/users-booking-history" routerLinkActive="active">Users Booking History</a></li>
           </ul>
         </nav>
       </aside>

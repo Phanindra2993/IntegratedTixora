@@ -1,6 +1,6 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, tap, catchError, throwError  } from 'rxjs';
 // import { Movie, NewMovie } from '../_models/movies.model';
 import { Showtime } from '../_models/showtimes.model';
 import { Movie, MovieCreateRequest, MovieStatusResponse } from '../_models/movies.model';
@@ -11,7 +11,7 @@ import { Movie, MovieCreateRequest, MovieStatusResponse } from '../_models/movie
 export class MoviesService {
   private cachedMovies: Movie[] = [];
 
-  private baseUrl = 'https://localhost:7063/api/movies';
+  private baseUrl = 'https://localhost:7063/api/movie-showtimes';
   private apiUrl = 'https://localhost:7063/api/movie-showtimes'
   constructor(private http: HttpClient) {}
 
@@ -61,25 +61,24 @@ export class MoviesService {
     return this.http.post<any>(this.apiUrl, movieRequest);
   }
 
-
-
-  updateMovie(movie: Movie): Observable<any> {
-    return this.http.put(`${this.baseUrl}/${movie.movieId}`, movie);
-  }
-
-  // deleteMovie(id: number): Observable<any> {
-  //   return this.http.delete(`${this.baseUrl}/${id}`);
+  // updateMovie(movie: Movie): Observable<any> {
+  //   return this.http.put(`${this.baseUrl}/${movie.movieId}`, movie);
   // }
 
-
-
-toggleMovieStatus(movieId: number, isActive: boolean): Observable<MovieStatusResponse > {
-  const params = new HttpParams().set('isActive', isActive.toString());
-  const url = `https://localhost:7063/api/movies/${movieId}/toggle-status`;
-  return this.http.patch<MovieStatusResponse >(url, null, { params });
-}
-
+  updateMovieWithShowtimes(movieId: number, requestBody: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/${movieId}`, requestBody).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error); // so component can catch
+      })
+    );
+  }
   
+  toggleMovieStatus(movieId: number, isActive: boolean): Observable<MovieStatusResponse > {
+    const params = new HttpParams().set('isActive', isActive.toString());
+    const url = `https://localhost:7063/api/movies/${movieId}/toggle-status`;
+    return this.http.patch<MovieStatusResponse >(url, null, { params });
+  }
+
 
   bookTickets(payload: {
     userId: number;
@@ -89,8 +88,7 @@ toggleMovieStatus(movieId: number, isActive: boolean): Observable<MovieStatusRes
   }): Observable<any> {
     return this.http.post('https://localhost:7063/api/bookings', payload);
   }
-
-  // getCachedMovies(): Movie[] {
-  //   return this.cachedMovies;
-  // }
 }
+
+
+

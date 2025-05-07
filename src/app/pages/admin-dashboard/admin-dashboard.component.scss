@@ -47,6 +47,10 @@
         }
       }
     }
+    .sidebar nav ul li a.active {
+      background-color: #1890ff !important;
+      color: #fff !important;
+    }
   }
 
   /* Main Content */

@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../../components/header/header.component';
 import { FooterComponent } from '../../../components/footer/footer.component';
@@ -60,12 +58,20 @@ export class BookTicketsComponent {
 
   groupShowtimesByDate() {
     this.groupedByDate = {};
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); 
+  
     for (let show of this.showtimes) {
       const date = show.showDate;
-      if (!this.groupedByDate[date]) {
-        this.groupedByDate[date] = [];
+      const showDate = new Date(date);
+      
+    
+      if (showDate >= today) {
+        if (!this.groupedByDate[date]) {
+          this.groupedByDate[date] = [];
+        }
+        this.groupedByDate[date].push(show);
       }
-      this.groupedByDate[date].push(show);
     }
     this.availableDates = Object.keys(this.groupedByDate);
   }
@@ -193,6 +199,13 @@ export class BookTicketsComponent {
 
     return showDateTime < now;
   }
+  isPastDate(dateString: string): boolean {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset time to compare only dates
+    
+    const showDate = new Date(dateString);
+    return showDate < today;
+  }
 
 
   showBookingConfirmation(): void {
@@ -244,3 +257,230 @@ export class BookTicketsComponent {
 
 
 }
+
+// import { Component } from '@angular/core';
+// import { HeaderComponent } from '../../../components/header/header.component';
+// import { FooterComponent } from '../../../components/footer/footer.component';
+// import { Movie } from '../../../_models/movies.model';
+// import { ActivatedRoute, Router } from '@angular/router';
+// import { MoviesService } from '../../../_services/movies.service';
+// import { CommonModule } from '@angular/common';
+// import { FormsModule } from '@angular/forms';
+// import { Showtime } from '../../../_models/showtimes.model';
+// import { NzButtonModule } from 'ng-zorro-antd/button';
+// import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
+
+// @Component({
+//   selector: 'app-book-tickets',
+//   standalone: true,
+//   imports: [
+//     HeaderComponent,
+//     FooterComponent,
+//     CommonModule,
+//     FormsModule,
+//     NzButtonModule,
+//     NzModalModule,
+//   ],
+//   templateUrl: './book-tickets.component.html',
+//   styleUrl: './book-tickets.component.scss',
+// })
+// export class BookTicketsComponent {
+//   showtimes: Showtime[] = [];
+//   groupedByDate: { [date: string]: Showtime[] } = {};
+//   movieId!: number;
+//   movie!: Movie;
+  
+//   // User selections
+//   seatCount: number = 1;
+//   selectedDate: string = '';
+//   selectedTime: string = '';
+//   availableDates: string[] = [];
+  
+//   // UI State
+//   showError: boolean = false;
+//   errorMessage: string = '';
+//   isLoading: boolean = false;
+//   readonly maxSeats: number = 6;
+
+//   constructor(
+//     private route: ActivatedRoute,
+//     private movieService: MoviesService,
+//     private router: Router,
+//     private modal: NzModalService
+//   ) {}
+
+//   ngOnInit(): void {
+//     const id = this.route.snapshot.paramMap.get('id');
+//     if (id) {
+//       this.movieId = +id;
+//       this.loadMovieData();
+//       this.loadShowtimes();
+//     }
+//   }
+
+//   private loadMovieData(): void {
+//     this.movieService.getMovieById(this.movieId).subscribe((res) => {
+//       this.movie = res.data;
+//     });
+//   }
+
+//   private loadShowtimes(): void {
+//     this.movieService.getShowtimesByMovieId(this.movieId).subscribe((res) => {
+//       this.showtimes = res.data;
+//       this.groupShowtimesByDate();
+//     });
+//   }
+
+//   private groupShowtimesByDate(): void {
+//     this.groupedByDate = {};
+//     this.showtimes.forEach((show) => {
+//       const date = show.showDate;
+//       if (!this.groupedByDate[date]) {
+//         this.groupedByDate[date] = [];
+//       }
+//       this.groupedByDate[date].push(show);
+//     });
+//     this.availableDates = Object.keys(this.groupedByDate);
+//   }
+
+//   // Validation
+//   private validateBooking(): boolean {
+//     this.clearErrors();
+
+//     if (!this.selectedDate) {
+//       this.errorMessage = '*Please select Show Date.';
+//     } else if (!this.selectedTime) {
+//       this.errorMessage = '*Please select Show Time.';
+//     } else if (!this.seatCount) {
+//       this.errorMessage = '*Please select Number of Seats.';
+//     } else if (this.seatCount < 1 || this.seatCount > this.maxSeats) {
+//       this.errorMessage = `*Please select between 1 and 1{this.maxSeats} seats.`;
+//     } else if (!this.getLoggedInUserId()) {
+//       this.errorMessage = '*Please login to book tickets.';
+//     } else if (!this.movie?.movieId) {
+//       this.errorMessage = '*Movie information is not available.';
+//     } else {
+//       const matchingShow = this.findMatchingShowtime();
+//       if (!matchingShow) {
+//         this.errorMessage = '*Invalid showtime selection.';
+//       } else {
+//         return true; // All validations passed
+//       }
+//     }
+
+//     this.showError = true;
+//     return false;
+//   }
+
+//   private getLoggedInUserId(): number | null {
+//     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+//     return loggedInUser?.userId ? Number(loggedInUser.userId) : null;
+//   }
+
+//   private findMatchingShowtime(): Showtime | undefined {
+//     const showsForDate = this.groupedByDate[this.selectedDate];
+//     return showsForDate?.find((s) => s.showTime === this.selectedTime);
+//   }
+
+//   // Booking Flow
+//   showBookingConfirmation(): void {
+//     if (!this.validateBooking()) return;
+
+//     this.modal.confirm({
+//       nzTitle: '<i>Confirm Your Booking</i>',
+//       nzContent: this.getConfirmationModalContent(),
+//       nzOkText: 'Confirm Booking',
+//       nzOkType: 'primary',
+//       nzOnOk: () => this.processBooking(),
+//       nzCancelText: 'Go Back',
+//     });
+//   }
+
+//   private getConfirmationModalContent(): string {
+//     return `
+//       <div style="padding: 10px;">
+//         <p><b>Movie:</b> ${this.movie.title}</p>
+//         <p><b>Date:</b> ${this.selectedDate}</p>
+//         <p><b>Time:</b> ${this.selectedTime}</p>
+//         <p><b>Seats:</b> ${this.seatCount}</p>
+//         <p><b>Total Amount:</b> ₹${this.seatCount * 200}</p>
+//       </div>
+//     `;
+//   }
+
+//   processBooking(): void {
+//     if (!this.validateBooking()) return;
+
+//     this.isLoading = true;
+//     const bookingPayload = this.createBookingPayload();
+
+//     this.movieService.bookTickets(bookingPayload).subscribe({
+//       next: (res) => this.handleBookingSuccess(res),
+//       error: (err) => this.handleBookingError(err),
+//       complete: () => (this.isLoading = false),
+//     });
+//   }
+
+//   private createBookingPayload(): any {
+//     return {
+//       userId: this.getLoggedInUserId(),
+//       showtimeId: this.findMatchingShowtime()?.showtimeId,
+//       movieId: this.movie.movieId,
+//       TicketCount: this.seatCount,
+//     };
+//   }
+
+//   private handleBookingSuccess(res: any): void {
+//     this.router.navigate(['/ticket'], {
+//       state: {
+//         ticket: {
+//           bookingId: res.data.bookingId,
+//           movieTitle: this.movie.title,
+//           movieImage: this.movie.imageUrl,
+//           showDate: this.selectedDate,
+//           showTime: this.selectedTime,
+//           quantity: this.seatCount,
+//           totalAmount: res.data.totalAmount,
+//           language: this.movie.language,
+//           format: this.movie.format,
+//         },
+//       },
+//     });
+//   }
+
+//   private handleBookingError(err: any): void {
+//     this.isLoading = false;
+//     this.showError = true;
+
+//     if (err.status === 400) {
+//       this.errorMessage = err.error?.message?.includes('already have a booking')
+//         ? 'You already booked this showtime. Check your tickets.'
+//         : 'Not enough seats available. Please try fewer seats.';
+//     } else {
+//       this.errorMessage = 'Booking failed. Please try again later.';
+//     }
+//   }
+
+//   // Helpers
+//   selectDate(date: string): void {
+//     this.selectedDate = date;
+//     this.selectedTime = '';
+//     this.clearErrors();
+//   }
+
+//   selectTime(time: string): void {
+//     this.selectedTime = time;
+//     this.clearErrors();
+//   }
+
+//   clearErrors(): void {
+//     this.showError = false;
+//     this.errorMessage = '';
+//   }
+
+//   isPastShowTime(showTime: string, showDate: string): boolean {
+//     const now = new Date();
+//     const showDateTime = new Date(`${showDate}T${showTime}`);
+//     return showDateTime < now;
+//   }
+// }

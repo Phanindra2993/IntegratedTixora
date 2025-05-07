@@ -20,13 +20,7 @@
       <form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
         <h2 class="page-title">Add Movies</h2>
 
-        <!-- Success/Error Messages -->
-        <div *ngIf="successMessage" class="alert success">
-          {{ successMessage }}
-        </div>
-        <div *ngIf="errorMessage" class="alert error">
-          {{ errorMessage }}
-        </div>
+        
 
         <!-- Movie Name -->
         <div class="form-group">
@@ -85,7 +79,7 @@
         <!-- Show Date -->
         <div class="form-group">
           <label>Show Date:</label>
-          <input type="date" formControlName="showDate">
+          <input type="date" formControlName="showDate" [min]="today">
         </div>
 
         <!-- Show Times -->
@@ -108,9 +102,16 @@
                  placeholder="Must start with http:// or https://">
         </div>
 
-        <button type="submit" [disabled]="isLoading">
+        <button type="submit" >
           {{ isLoading ? 'Adding...' : 'Add Movie' }}
         </button>
+        <!-- Success/Error Messages -->
+        <div *ngIf="successMessage" class="alert success">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert error">
+          {{ errorMessage }}
+        </div>
       </form>
     </main>
   </div>
