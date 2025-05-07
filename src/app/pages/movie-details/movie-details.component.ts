@@ -29,26 +29,7 @@ export class MovieDetailsComponent implements OnInit {
     private movieService: MoviesService
   ) {}
 
-  // ngOnInit(): void {
-  //   this.route.paramMap.subscribe((params) => {
-  //     const id = params.get('id');
-  //     if (id) {
-  //       this.movieService.getAllMovies().subscribe(() => {
-  //         this.movieService.getMovieById(+id).subscribe((res) => {
-  //           this.movie = res;
 
-  //           this.relatedMovies = this.movieService
-  //             .getCachedMovies()
-  //             .filter(
-  //               (m) => m.genre === this.movie.genre && m.id !== this.movie.id
-  //             );
-
-  //           // console.log('Related Movies:', this.relatedMovies);
-  //         });
-  //       });
-  //     }
-  //   });
-  // }
 
   ngOnInit(): void {
     console.log(this.movie);

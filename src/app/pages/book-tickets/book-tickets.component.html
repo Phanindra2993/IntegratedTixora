@@ -8,6 +8,7 @@
         *ngFor="let date of availableDates"
         (click)="selectDate(date)"
         [class.active]="date === selectedDate"
+        
       >
         {{ date | date : "EEE, dd MMM" }}
       </button>

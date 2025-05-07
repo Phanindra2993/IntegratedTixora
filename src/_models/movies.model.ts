@@ -52,6 +52,7 @@ export interface Movie {
   description: string;
   imageUrl: string;
   isActive: boolean;
+
 }
 export interface MovieStatusResponse {
   success: boolean;
@@ -66,6 +67,8 @@ export interface Showtime {
   availableSeats: number;
   isActive: boolean;
 }
+
+
 
 export interface MovieCreateRequest {
   movie: Movie;

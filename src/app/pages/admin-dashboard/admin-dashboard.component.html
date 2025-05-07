@@ -97,9 +97,11 @@
   (nzOnOk)="saveMovie()"
   (nzOnCancel)="closeModal()"
   [nzOkDisabled]="movieForm.invalid"
+  [nzFooter] = "null"
   >
     <ng-container *nzModalContent>
       <form [formGroup]="movieForm">
+        
         <div formGroupName="movie">
           <h3>Movie Details</h3>
 
@@ -159,7 +161,7 @@
 
         <hr />
 
-        <div formArrayName="shows">
+        <!-- <div formArrayName="shows">
           <h3>Show Details</h3>
           <div
             class="form-group"
@@ -168,7 +170,7 @@
           >
             <div>
               <label>Movie ID:</label>
-              <input formControlName="movieId" type="number" />
+              <input formControlName="movieId" type="number" readonly/>
             </div>
             <div>
               <label>Show Date:</label>
@@ -176,7 +178,7 @@
             </div>
             <div>
               <label>Show Time:</label>
-              <input formControlName="showTime" type="time" />
+              <input formControlName="showTime" type="time"  />
             </div>
             <div>
               <label>Available Seats:</label>
@@ -184,7 +186,7 @@
             </div>
             <div>
               <label>Showtime ID:</label>
-              <input formControlName="showtimeId" type="number" />
+              <input formControlName="showtimeId" type="number" readonly/>
             </div>
             <div>
               <label>
@@ -202,8 +204,64 @@
           </div>
 
           <button type="button" (click)="addShow()">Add Another Show</button>
-        </div>
+        </div> -->
 
+        <div formArrayName="shows">
+          <h3>Show Details</h3>
+          <div *ngIf="shows.length === 0" class="no-shows-message">
+            No showtimes available for this movie. Add one below.
+          </div>
+          
+          <div
+            class="show-time-card"
+            *ngFor="let show of shows.controls; let i = index"
+            [formGroupName]="i"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label>Show Date</label>
+                <input formControlName="showDate" type="date" [min]="today" />
+              </div>
+              
+              <div class="form-group">
+                <label>Show Time</label>
+                <input formControlName="showTime" type="time" />
+                
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label>Available Seats</label>
+                <input formControlName="availableSeats" type="number" min="1" />
+              </div>
+              
+              <div class="form-group">
+                <label>
+                  <input formControlName="isActive" type="checkbox" />
+                  Active
+                </label>
+              </div>
+            </div>
+            
+            <input formControlName="movieId" type="hidden" />
+            <input formControlName="showtimeId" type="hidden" />
+            
+            <button
+              type="button"
+              (click)="removeShow(i)"
+              *ngIf="shows.length > 1"
+              class="remove-show-btn"
+            >
+              Remove Show
+            </button>
+          
+          </div>
+        
+          <button type="button" (click)="addShow()" class="add-show-btn">
+            Add Another Show
+          </button>
+        </div>
         <hr />
 
         <button
@@ -213,6 +271,11 @@
         >
           {{ selectedMovie ? "Update Movie" : "Add Movie" }}
         </button>
+        <div *ngIf="errorMessage" class="error-message" style="color: red; margin-bottom: 10px;">
+          {{ errorMessage }}
+        </div>
+        
+        
       </form>
     </ng-container>
   </nz-modal>
